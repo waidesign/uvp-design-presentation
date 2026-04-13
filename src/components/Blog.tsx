@@ -36,7 +36,7 @@ export default function Blog() {
             style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '56px', color: '#191c1e', lineHeight: '1.1' }}
           >
             UsedVehiclePro Blog:<br />
-            <span style={{ color: '#0eb075' }}>Valuable Content</span> you don't want to miss
+            <span style={{ color: '#0eb075' }}>Valuable Content</span> you don&apos;t want to miss
           </h2>
         </div>
 

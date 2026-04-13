@@ -118,7 +118,7 @@ export default function Features() {
             style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#1a1a1a' }}
           >
             We check what sellers{' '}
-            <span style={{ fontFamily: '"Kalam", cursive', color: '#0EB075' }}>won't tell you</span>
+            <span style={{ fontFamily: '"Kalam", cursive', color: '#0EB075' }}>won&apos;t tell you</span>
           </h2>
 
           {featureRows.map((row, idx) => (

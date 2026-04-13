@@ -7,11 +7,11 @@ export default function CompetitorComparison() {
     <div className="grid md:grid-cols-3 gap-6">
       {/* Carfax */}
       <div className="p-6 sketch-border bg-white flex flex-col items-center text-center opacity-80 grayscale-[0.5]">
-        <div className="font-hand text-red-500 mb-2" style={{ fontFamily: '"Kalam", cursive' }}>The "Big Guy"</div>
+        <div className="font-hand text-red-500 mb-2" style={{ fontFamily: '"Kalam", cursive' }}>The &quot;Big Guy&quot;</div>
         <img src="https://www.google.com/s2/favicons?domain=carfax.com&sz=64" className="w-12 h-12 mb-4" alt="Carfax" />
         <h4 className="text-xl mb-1" style={{ fontFamily: '"Gochi Hand", cursive' }}>CARFAX</h4>
         <div className="text-2xl font-bold mb-4" style={{ fontFamily: '"Kalam", cursive' }}>$44.99</div>
-        <p className="text-[11px] font-body text-slate-500 italic" style={{ fontFamily: '"Space Mono", monospace' }}>"Has a selective memory when it comes to those 'minor' accidents."</p>
+        <p className="text-[11px] font-body text-slate-500 italic" style={{ fontFamily: '"Space Mono", monospace' }}>&quot;Has a selective memory when it comes to those &apos;minor&apos; accidents.&quot;</p>
       </div>
 
       {/* UsedVehiclePro */}
@@ -36,7 +36,7 @@ export default function CompetitorComparison() {
         <img src="https://www.google.com/s2/favicons?domain=autocheck.com&sz=64" className="w-12 h-12 mb-4" alt="AutoCheck" />
         <h4 className="text-xl mb-1" style={{ fontFamily: '"Gochi Hand", cursive' }}>AutoCheck</h4>
         <div className="text-2xl font-bold mb-4" style={{ fontFamily: '"Kalam", cursive' }}>$29.99</div>
-        <p className="text-[11px] font-body text-slate-500 italic" style={{ fontFamily: '"Space Mono", monospace' }}>"Checks the basics, but misses the skeletons in the trunk."</p>
+        <p className="text-[11px] font-body text-slate-500 italic" style={{ fontFamily: '"Space Mono", monospace' }}>&quot;Checks the basics, but misses the skeletons in the trunk.&quot;</p>
       </div>
     </div>
   );

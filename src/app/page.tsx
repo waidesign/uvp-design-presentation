@@ -39,7 +39,7 @@ export default function App() {
                 className="font-body mx-auto leading-relaxed"
                 style={{ fontSize: '13px', color: '#4B5563', fontFamily: '"Space Mono", monospace', maxWidth: '520px' }}
               >
-                Ever wonder what Carfax and AutoCheck "forget" to mention?<br />
+                Ever wonder what Carfax and AutoCheck &quot;forget&quot; to mention?<br />
                 Grab the slider and see the skeletons sellers are hiding.
               </p>
             </div>
@@ -63,13 +63,13 @@ export default function App() {
                   className="mb-6 leading-tight"
                   style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#111827' }}
                 >
-                  Carfax doesn't show you the full truth. <span style={{ color: '#EA4335' }}>We do.</span>
+                  Carfax doesn&apos;t show you the full truth. <span style={{ color: '#EA4335' }}>We do.</span>
                 </h3>
                 <p 
                   className="font-body mb-10 leading-relaxed"
                   style={{ fontSize: '13px', color: '#4B5563', fontFamily: '"Space Mono", monospace' }}
                 >
-                  While our competitors are busy charging you for "brand name" reports that miss crucial data, we're digging deep into 45+ countries and 330M records to find exactly what happened to that car.
+                  While our competitors are busy charging you for &quot;brand name&quot; reports that miss crucial data, we&apos;re digging deep into 45+ countries and 330M records to find exactly what happened to that car.
                 </p>
 
                 <div className="flex flex-col gap-6 mb-10">
@@ -77,14 +77,14 @@ export default function App() {
                     <CheckCircle size={20} color="#0EB075" strokeWidth={2} className="shrink-0 mt-0.5" />
                     <div>
                       <div className="font-body mb-1" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Detailed Accident Assessments</div>
-                      <div className="font-body" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Not just "Accident reported", but "Left-front structural damage".</div>
+                      <div className="font-body" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Not just &quot;Accident reported&quot;, but &quot;Left-front structural damage&quot;.</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <CheckCircle size={20} color="#0EB075" strokeWidth={2} className="shrink-0 mt-0.5" />
                     <div>
                       <div className="font-body mb-1" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Real-time Market Value</div>
-                      <div className="font-body" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Know instantly if you're getting a deal or a scam.</div>
+                      <div className="font-body" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Know instantly if you&apos;re getting a deal or a scam.</div>
                     </div>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export default function App() {
                      Connect with used car buyers <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
                    </h4>
                    <p style={{ fontSize: '11px', color: '#4B5563', fontFamily: '"Space Mono", monospace', marginBottom: '24px', lineHeight: '1.6' }}>
-                     Don't wait for "pending updates". Our database is live. Grab your report and let the buyer know the truth before anyone else does.
+                     Don&apos;t wait for &quot;pending updates&quot;. Our database is live. Grab your report and let the buyer know the truth before anyone else does.
                    </p>
                    <button className="primary-button font-body text-sm px-6 py-4 w-full transition-all active:scale-95" style={{ fontSize: '14px', fontWeight: '700', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
                      GET STARTED FOR $19.99
