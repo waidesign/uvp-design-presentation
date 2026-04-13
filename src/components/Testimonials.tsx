@@ -43,7 +43,7 @@ export default function Testimonials() {
             >
               <p
                 className="font-body mb-10 leading-relaxed"
-                style={{ fontSize: '15px', color: '#3D4A41', fontFamily: '"Space Mono", monospace' }}
+                style={{ fontFamily: '"Space Mono", monospace' }}
               >
                 {"\""}{t.text}{"\""}
               </p>

@@ -23,7 +23,7 @@ export default function UnlimitedPricingCard() {
           Monthly Subscription
         </div>
 
-        <p className="font-body mb-8 leading-relaxed max-w-lg" style={{ fontFamily: '"Space Mono", monospace', fontSize: '15px', color: '#3D4A41' }}>
+        <p className="font-body mb-8 leading-relaxed max-w-lg" style={{ fontFamily: '"Space Mono", monospace' }}>
           Uncover the hidden history of any vehicle with unlimited access to basic VIN check reports.
         </p>
 
@@ -36,7 +36,7 @@ export default function UnlimitedPricingCard() {
             <span style={{ fontFamily: '"Kalam", cursive', fontSize: '48px', fontWeight: 700, color: '#0EB075', lineHeight: '1' }}>$49.99</span>
             <span className="font-body mb-2" style={{ fontFamily: '"Space Mono", monospace', fontSize: '16px', color: '#111827' }}>/month</span>
           </div>
-          <div className="font-body opacity-70 flex items-center gap-2" style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41' }}>
+          <div className="font-body opacity-70 flex items-center gap-2" style={{ fontFamily: '"Space Mono", monospace' }}>
             Billed monthly • Cancel anytime!
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function UnlimitedPricingCard() {
         {/* Footer Contact */}
         <div className="flex items-center gap-3 mt-10 opacity-70">
            <Phone size={16} color="#111827" />
-           <span className="font-body" style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px' }}>
+           <span className="font-body" style={{ fontFamily: '"Space Mono", monospace' }}>
              <a href="#" className="underline underline-offset-2 hover:text-[#0EB075] transition-colors">Contact Sales</a> for custom enterprise solutions
            </span>
         </div>
@@ -85,7 +85,7 @@ export default function UnlimitedPricingCard() {
             ].map((feature, i) => (
               <li key={i} className="flex items-start gap-3">
                 <CheckCircle size={18} color="#0EB075" strokeWidth={2.5} className="shrink-0 mt-0.5" />
-                <span className="font-body" style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', color: '#3D4A41', lineHeight: '1.5' }}>
+                <span className="font-body" style={{ fontFamily: '"Space Mono", monospace', lineHeight: '1.75rem' }}>
                   {feature}
                 </span>
               </li>
@@ -102,7 +102,7 @@ export default function UnlimitedPricingCard() {
               </h4>
            </div>
            
-           <p className="font-body p-color-light opacity-90 mb-4" style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', lineHeight: '1.6' }}>
+           <p className="font-body p-color-light opacity-90 mb-4" style={{ fontFamily: '"Space Mono", monospace' }}>
              Full reports include ownership history, accident details, maintenance history, title checks, theft, lien records, and photos.
            </p>
            

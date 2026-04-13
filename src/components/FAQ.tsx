@@ -41,7 +41,7 @@ export default function FAQ() {
         </h2>
         <p
           className="text-center font-body mb-12"
-          style={{ fontSize: '13px', color: '#6b7280', fontFamily: '"Space Mono", monospace' }}
+          style={{ fontFamily: '"Space Mono", monospace' }}
         >
           Everything you wanted to know about VIN checks
         </p>
@@ -89,7 +89,7 @@ export default function FAQ() {
                   >
                     <div
                       className="font-body px-6 pb-5"
-                      style={{ fontSize: '13px', color: '#4a5568', fontFamily: '"Space Mono", monospace', lineHeight: '1.7', borderTop: '1px solid #e5e7eb' }}
+                      style={{ fontFamily: '"Space Mono", monospace', borderTop: '1px solid #e5e7eb' }}
                     >
                       <div className="pt-4">{faq.a}</div>
                     </div>

@@ -100,7 +100,7 @@ export default function Features() {
                 </h3>
                 <p
                   className="font-body leading-relaxed"
-                  style={{ fontSize: '13px', color: '#4a5568', fontFamily: '"Space Mono", monospace' }}
+                  style={{ fontFamily: '"Space Mono", monospace' }}
                 >
                   {card.text}
                 </p>
@@ -136,7 +136,7 @@ export default function Features() {
                 </h3>
                 <p
                   className="font-body mb-6 leading-relaxed"
-                  style={{ fontSize: '13px', color: '#4a5568', fontFamily: '"Space Mono", monospace' }}
+                  style={{ fontFamily: '"Space Mono", monospace' }}
                 >
                   {row.text}
                 </p>

@@ -57,7 +57,7 @@ export default function HowItWorks() {
               </div>
               <p
                 className="font-body mb-3"
-                style={{ fontSize: '13px', color: '#4a5568', fontFamily: '"Space Mono", monospace', marginLeft: '32px' }}
+                style={{ fontFamily: '"Space Mono", monospace', marginLeft: '32px' }}
               >
                 {item.text}
               </p>
@@ -96,7 +96,7 @@ export default function HowItWorks() {
                   }}
                 >
                   <Clock size={13} />
-                  <span className="font-body" style={{ fontSize: '11px', letterSpacing: '0.06em', fontWeight: 700, fontFamily: '"Space Mono", monospace' }}>
+                  <span className="font-body" style={{ letterSpacing: '0.06em', fontWeight: 700, fontFamily: '"Space Mono", monospace' }}>
                     {item.badge}
                   </span>
                 </div>

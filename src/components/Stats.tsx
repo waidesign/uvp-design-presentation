@@ -18,7 +18,7 @@ export default function Stats() {
             <h2 className="mb-6" style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#111827' }}>
               The Full Truth in Numbers
             </h2>
-            <p className="font-body leading-relaxed" style={{ fontSize: '13px', color: '#4B5563', fontFamily: '"Space Mono", monospace' }}>
+            <p className="font-body leading-relaxed" style={{ fontFamily: '"Space Mono", monospace' }}>
               {"We dug through the dusty archives so you don't have to."}<br className="hidden sm:block"/>
               {"Accidents, title drama, mileage tricks-we find 'em all in seconds."}
             </p>
@@ -41,9 +41,7 @@ export default function Stats() {
                 <div 
                   className="font-body" 
                   style={{ 
-                    fontSize: '13px',
-                    fontFamily: '"Space Mono", monospace',
-                    color: '#4B5563'
+                    fontFamily: '"Space Mono", monospace'
                   }}
                 >
                   {stat.label}

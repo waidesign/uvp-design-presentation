@@ -37,7 +37,7 @@ export default function App() {
               </h2>
               <p 
                 className="font-body mx-auto leading-relaxed"
-                style={{ fontSize: '13px', color: '#4B5563', fontFamily: '"Space Mono", monospace', maxWidth: '520px' }}
+                style={{ fontFamily: '"Space Mono", monospace', maxWidth: '520px' }}
               >
                 Ever wonder what Carfax and AutoCheck &quot;forget&quot; to mention?<br />
                 Grab the slider and see the skeletons sellers are hiding.
@@ -67,7 +67,7 @@ export default function App() {
                 </h3>
                 <p 
                   className="font-body mb-10 leading-relaxed"
-                  style={{ fontSize: '13px', color: '#4B5563', fontFamily: '"Space Mono", monospace' }}
+                  style={{ fontFamily: '"Space Mono", monospace' }}
                 >
                   While our competitors are busy charging you for &quot;brand name&quot; reports that miss crucial data, we&apos;re digging deep into 45+ countries and 330M records to find exactly what happened to that car.
                 </p>
@@ -93,13 +93,13 @@ export default function App() {
                   className="p-8 sketch-border" 
                   style={{ backgroundColor: '#F5FDF9', borderColor: '#004B22' }}
                 >
-                   <div style={{ color: '#004B22', fontSize: '11px', fontWeight: 'bold', letterSpacing: '1px', marginBottom: '12px', fontFamily: '"Space Mono", monospace' }}>INSTANT CONNECTION</div>
+                    <div style={{ color: '#3D4A41', fontSize: '1.125rem', fontWeight: '400', letterSpacing: 'normal', marginBottom: '12px', fontFamily: '"Space Mono", monospace', lineHeight: '1.75rem' }}>INSTANT CONNECTION</div>
                    <h4 style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#111827', marginBottom: '16px' }}>
                      Connect with used car buyers <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
                    </h4>
-                   <p style={{ fontSize: '11px', color: '#4B5563', fontFamily: '"Space Mono", monospace', marginBottom: '24px', lineHeight: '1.6' }}>
-                     Don&apos;t wait for &quot;pending updates&quot;. Our database is live. Grab your report and let the buyer know the truth before anyone else does.
-                   </p>
+                    <p style={{ fontFamily: '"Space Mono", monospace', marginBottom: '24px' }}>
+                      Don&apos;t wait for &quot;pending updates&quot;. Our database is live. Grab your report and let the buyer know the truth before anyone else does.
+                    </p>
                    <button className="primary-button font-body text-sm px-6 py-4 w-full transition-all active:scale-95" style={{ fontSize: '14px', fontWeight: '700', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
                      GET STARTED FOR $19.99
                    </button>
@@ -120,7 +120,7 @@ export default function App() {
             </h2>
             <p 
               className="font-body mb-16 mx-auto opacity-70"
-              style={{ fontSize: '13px', fontFamily: '"Space Mono", monospace', maxWidth: '500px' }}
+              style={{ fontFamily: '"Space Mono", monospace', maxWidth: '500px' }}
             >
               We provide more data checkpoints than the big names, for less than the price of a takeout lunch.
             </p>
