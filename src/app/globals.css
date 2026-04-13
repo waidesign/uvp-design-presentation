@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Gochi Hand", cursive;
+  --font-hand: "Kalam", cursive;
+  --font-body: "Space Mono", monospace;
+
+  --color-primary: #0EB075;
+  --color-primary-dark: #004B22;
+  --color-primary-container: #004B22;
+  --color-background: #F5FDF9;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #E8F3E8;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-slate-900 font-body overflow-x-hidden;
+    background-color: #F5FDF9;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Gochi Hand", cursive;
+  }
+
+  p,
+  p.font-body {
+    color: #3D4A41;
+    font-family: "Space Mono", monospace;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem;
+  }
+
+  a:not(.primary-button):not(.secondary-button) {
+    transition: color 0.15s ease-in-out;
+  }
+
+  a:not(.primary-button):not(.secondary-button):hover {
+    color: #0EB075;
+  }
+}
+
+@layer utilities {
+  .sketch-border {
+    border: 2px solid #004B22;
+    border-radius: 2px;
+  }
+
+  .sketch-border-sm {
+    border: 1.5px solid #004B22;
+    border-radius: 2px;
+  }
+
+
+  .sketch-shadow {
+    box-shadow: 5px 5px 0px 0px #004B22;
+  }
+
+  .wavy-underline {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 6px;
+    text-decoration-color: #0EB075;
+    text-decoration-thickness: 3px;
+  }
+
+  .wavy-underline-red {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-underline-offset: 6px;
+    text-decoration-color: #ef4444;
+    text-decoration-thickness: 3px;
+  }
+
+  .font-hand {
+    font-family: "Kalam", cursive;
+  }
+
+  .primary-button {
+    background-color: #0EB075;
+    border: 2px solid #004B22;
+    box-shadow: 2px 2px 0 0 #004B22;
+    border-radius: 2px;
+    color: white;
+    transition: all 0.2s ease;
+  }
+
+  .primary-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 0 #004B22;
+  }
+
+  .primary-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 0px 0px 0 0 #004B22;
+  }
+
+  .secondary-button {
+    background-color: white;
+    border: 2px solid #004B22;
+    box-shadow: 2px 2px 0 0 #004B22;
+    border-radius: 4px;
+    color: #004B22;
+    transition: all 0.2s ease;
+    @apply font-headline;
+  }
+
+  .secondary-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 0 #004B22;
+  }
+
+  .secondary-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 0px 0px 0 0 #004B22;
+  }
+
+  .green-brush-text {
+    color: #0EB075;
+    font-family: "Kalam", cursive;
+  }
+
+  .section-bg-mint {
+    background-color: #E8F4E8;
+  }
+
+  .faq-accordion-border {
+    border: 2px solid #004B22;
+    border-radius: 2px;
+  }
+
+}
+
+/* Color overrides — outside @layer so they beat @layer base !important */
+.p-color-light {
+  color: #f1f1f1 !important;
+}
+
+.p-color-white {
+  color: #ffffff !important;
+}
