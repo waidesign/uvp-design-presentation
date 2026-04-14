@@ -1,6 +1,6 @@
 "use client";
 import { motion } from 'motion/react';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Car, TrendingUp } from 'lucide-react';
 const blogChartViz = '/assets/blog_chart_viz.png';
 
 export default function Blog() {
@@ -10,7 +10,7 @@ export default function Blog() {
       author: 'Mike S.',
       date: 'Aug 14, 2024',
       category: 'TIPS & TRICKS',
-      emoji: '🚗'
+      icon: <Car size={48} className="text-[#0EB075]" />
     },
     {
       title: 'Technical Audit: How 330M Records Expose Hidden Lemon Skeletons',
@@ -24,7 +24,7 @@ export default function Blog() {
       author: 'Sarah Data',
       date: 'Aug 10, 2024',
       category: 'MARKET DATA',
-      emoji: '📈'
+      icon: <TrendingUp size={48} className="text-[#0EB075]" />
     },
   ];
 
@@ -62,7 +62,7 @@ export default function Blog() {
                 ) : (
                   <div className="w-full h-full flex items-center justify-center p-8">
                     <div className="w-full h-full bg-[#f9fff7] sketch-border flex flex-col items-center justify-center gap-4" style={{ borderColor: '#004B22' }}>
-                      <span className="text-4xl">{post.emoji}</span>
+                      {post.icon}
                     </div>
                   </div>
                 )}

@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ChevronDown, CheckCircle, AlertTriangle, Shield, 
-  FileText, Ban, Info, ArrowRight, Car, Eye, Ruler, Trash2, Zap
+  FileText, Ban, Info, ArrowRight, Car, Eye, Ruler, Trash2, Zap,
+  ArrowDown, AlertCircle, Caravan
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
@@ -73,9 +74,6 @@ export default function TitleCheckPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
@@ -91,7 +89,9 @@ export default function TitleCheckPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#004B22', fontSize: '18px', transform: 'rotate(-1.5deg)',
               }}>
-                📄 Verify Ownership & Title Brands
+                <div className="flex items-center gap-2">
+                  <FileText size={18} /> Verify Ownership & Title Brands
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6" 
@@ -114,11 +114,11 @@ export default function TitleCheckPage() {
               className="relative mx-auto mt-4" 
               style={{ backgroundColor: '#fff', border: '2px solid #004B22', borderRadius: '4px', padding: '28px', maxWidth: '700px', boxShadow: '5px 5px 0 0 #004B22' }}
             >
-              <div className="absolute -top-4 left-5 px-3 py-1" style={{ 
+              <div className="absolute -top-4 left-5 px-3 py-1 flex items-center gap-1" style={{ 
                 backgroundColor: '#FFF9C4', border: '2px solid #004B22', borderRadius: '4px', 
                 transform: 'rotate(-2deg)', fontFamily: '"Gochi Hand", cursive', color: '#004B22', fontSize: '14px',
               }}>
-                Check VIN here 👇
+                Check VIN here <ArrowDown size={14} />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
@@ -246,8 +246,8 @@ export default function TitleCheckPage() {
                  </div>
               </div>
             </div>
-            <div className="mt-8 text-center" style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#b91c1c' }}>
-               🚫 You would have overpaid by <span style={{ textDecoration: 'underline font-bold' }}>$10,000+</span>
+            <div className="mt-8 text-center flex items-center justify-center gap-2" style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#b91c1c' }}>
+               <AlertCircle size={20} /> You would have overpaid by <span style={{ textDecoration: 'underline font-bold' }}>$10,000+</span>
             </div>
           </div>
         </section>

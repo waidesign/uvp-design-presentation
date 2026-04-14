@@ -1,7 +1,11 @@
 "use client";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, ChevronDown, CheckCircle, FileText, Shield, Zap, Tag, Fuel, ArrowRight } from 'lucide-react';
+import { 
+  Search, ChevronDown, CheckCircle, FileText, Shield, Zap, Tag, Fuel, ArrowRight,
+  ArrowDown, CircleCheck, Lock, ClipboardList, Layout, ShoppingCart, Building2,
+  DollarSign, Smile, Award, Flag
+} from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 
@@ -52,7 +56,7 @@ const STICKER_SECTIONS = [
 // ─── Why Important ───────────────────────────────────────────────────────────
 const WHY_GROUPS = [
   {
-    emoji: '🛒',
+    icon: <ShoppingCart size={22} className="text-white" />,
     role: 'Buyers',
     points: [
       'Verify specs & avoid scams before you sign anything.',
@@ -61,7 +65,7 @@ const WHY_GROUPS = [
     ],
   },
   {
-    emoji: '🏷️',
+    icon: <Tag size={22} className="text-white" />,
     role: 'Sellers',
     points: [
       'Prove original features and packages to command a fair price.',
@@ -70,7 +74,7 @@ const WHY_GROUPS = [
     ],
   },
   {
-    emoji: '🏢',
+    icon: <Building2 size={22} className="text-white" />,
     role: 'Dealerships',
     points: [
       'Stay compliant with federal and state disclosure requirements.',
@@ -99,10 +103,6 @@ export default function WindowStickerPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-          {/* Decorative sketch lines */}
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
@@ -127,7 +127,9 @@ export default function WindowStickerPage() {
                 fontSize: '18px',
                 transform: 'rotate(-1.5deg)',
               }}>
-                🪟 Original Monroney Label Lookup
+                <div className="flex items-center gap-2">
+                  <Layout size={20} /> Original Monroney Label Lookup
+                </div>
               </div>
 
               <h1
@@ -165,7 +167,7 @@ export default function WindowStickerPage() {
             >
               {/* Sticky note label */}
               <div
-                className="absolute -top-4 left-5 px-3 py-1"
+                className="absolute -top-4 left-5 px-3 py-1 flex items-center gap-1"
                 style={{
                   backgroundColor: '#FFF9C4',
                   border: '2px solid #004B22',
@@ -176,7 +178,7 @@ export default function WindowStickerPage() {
                   fontSize: '14px',
                 }}
               >
-                Paste VIN here 👇
+                Paste VIN here <ArrowDown size={14} />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
@@ -219,8 +221,15 @@ export default function WindowStickerPage() {
               className="flex flex-wrap justify-center gap-6 mt-10"
               style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41' }}
             >
-              {['✅ All Major Brands', '⚡ Instant PDF Download', '🔒 100% Private Lookup', '📋 330M+ Records'].map((badge) => (
-                <span key={badge} className="px-4 py-2 bg-white" style={{ border: '1.5px solid #004B22', borderRadius: '4px' }}>{badge}</span>
+              {[
+                { icon: <CircleCheck size={16} className="text-[#0EB075]" />, text: 'All Major Brands' },
+                { icon: <Zap size={16} className="text-[#0EB075]" />, text: 'Instant PDF Download' },
+                { icon: <Lock size={16} className="text-[#0EB075]" />, text: '100% Private Lookup' },
+                { icon: <ClipboardList size={16} className="text-[#0EB075]" />, text: '330M+ Records' }
+              ].map((b, i) => (
+                <span key={i} className="px-4 py-2 bg-white flex items-center gap-2" style={{ border: '1.5px solid #004B22', borderRadius: '4px' }}>
+                  {b.icon} {b.text}
+                </span>
               ))}
             </motion.div>
           </div>
@@ -283,7 +292,9 @@ export default function WindowStickerPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Dealer claims */}
               <div style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '2px solid rgba(255,255,255,0.2)', borderRadius: '4px', padding: '28px' }}>
-                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#ef4444', marginBottom: '16px' }}>🚩 What the Dealer Said</div>
+                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#ef4444', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Flag size={20} /> What the Dealer Said
+                </div>
                 {[
                   '"This is fully loaded with premium packages."',
                   '"The original sticker was $31,000. You\'re getting a steal at $19,500."',
@@ -298,7 +309,9 @@ export default function WindowStickerPage() {
 
               {/* What sticker revealed */}
               <div style={{ backgroundColor: 'rgba(14,176,117,0.12)', border: '2px solid #0EB075', borderRadius: '4px', padding: '28px' }}>
-                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#0EB075', marginBottom: '16px' }}>📋 What the Sticker Showed</div>
+                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#0EB075', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ClipboardList size={20} /> What the Sticker Showed
+                </div>
                 {[
                   'LIE #1: Original MSRP was $29,345—not $31,000.',
                   'LIE #2: The "premium cloth seats" were standard equipment.',
@@ -316,12 +329,12 @@ export default function WindowStickerPage() {
             {/* Result */}
             <div className="mt-10 flex flex-wrap justify-center gap-8">
               {[
-                { emoji: '💰', val: '$3,000', label: 'Saved in negotiation' },
-                { emoji: '😌', val: 'Zero', label: "Buyer's remorse" },
-                { emoji: '💪', val: '100%', label: 'Negotiated with confidence' },
+                { icon: <DollarSign size={32} className="text-[#0EB075]" />, val: '$3,000', label: 'Saved in negotiation' },
+                { icon: <Smile size={32} className="text-[#0EB075]" />, val: 'Zero', label: "Buyer's remorse" },
+                { icon: <Award size={32} className="text-[#0EB075]" />, val: '100%', label: 'Negotiated with confidence' },
               ].map((stat) => (
                 <div key={stat.val} className="text-center">
-                  <div style={{ fontSize: '32px', marginBottom: '4px' }}>{stat.emoji}</div>
+                  <div className="flex justify-center mb-2">{stat.icon}</div>
                   <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '28px', color: '#0EB075' }}>{stat.val}</div>
                   <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: 'rgba(255,255,255,0.7)' }}>{stat.label}</div>
                 </div>
@@ -381,8 +394,8 @@ export default function WindowStickerPage() {
                   }}
                 >
                   <div style={{ backgroundColor: '#004B22', padding: '16px 24px' }}>
-                    <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '22px', color: '#fff' }}>
-                      {group.emoji} For {group.role}
+                    <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '22px', color: '#fff', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      {group.icon} For {group.role}
                     </div>
                   </div>
                   <div style={{ backgroundColor: '#fff', padding: '24px' }}>
@@ -550,19 +563,21 @@ export default function WindowStickerPage() {
         {/* ═══════════════ FINAL CTA ═══════════════ */}
         <section className="py-20" style={{ backgroundColor: '#004B22' }}>
           <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-            <div
-              className="inline-block mb-6 px-4 py-2"
-              style={{
-                backgroundColor: '#0EB075',
-                border: '2px solid rgba(255,255,255,0.3)',
-                borderRadius: '4px',
-                fontFamily: '"Gochi Hand", cursive',
-                color: '#fff',
-                fontSize: '16px',
-              }}
-            >
-              🔍 Check Your Vehicle&apos;s Documentation
-            </div>
+              <div
+                className="inline-block mb-6 px-4 py-2"
+                style={{
+                  backgroundColor: '#0EB075',
+                  border: '2px solid rgba(255,255,255,0.3)',
+                  borderRadius: '4px',
+                  fontFamily: '"Gochi Hand", cursive',
+                  color: '#fff',
+                  fontSize: '16px',
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <Search size={18} /> Check Your Vehicle&apos;s Documentation
+                </div>
+              </div>
             <h2 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', marginBottom: '16px' }}>
               Know Exactly What You&apos;re Buying.{' '}
               <span style={{ color: '#0EB075' }}>Every Time.</span>

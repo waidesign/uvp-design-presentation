@@ -1,7 +1,11 @@
 "use client";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, ChevronDown, CheckCircle, AlertTriangle, Shield, Clock, FileSearch, MapPin, ArrowRight, CreditCard } from 'lucide-react';
+import { 
+  Search, ChevronDown, CheckCircle, AlertTriangle, Shield, Clock, FileSearch, 
+  MapPin, ArrowRight, CreditCard, ArrowDown, Lock, ClipboardList, Users, 
+  Flag, DollarSign, Bell, Truck, Building2, Accessibility, Star, Car, Zap
+} from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 
@@ -58,12 +62,12 @@ const UNCOVER_ITEMS = [
 
 // ─── Plate Types ──────────────────────────────────────────────────────────────
 const PLATE_TYPES = [
-  { emoji: '🚗', name: 'Standard Plates', desc: 'Issued to most passenger vehicles. Feature state name, unique alphanumeric code, and sometimes a slogan or image.' },
-  { emoji: '🚛', name: 'Commercial Plates', desc: 'For trucks and business vehicles. May include weight classifications or other commercial designations.' },
-  { emoji: '🏛️', name: 'Antique/Collector Plates', desc: 'For classic or vintage vehicles. Typically come with restrictions on how the vehicle may be used.' },
-  { emoji: '♿', name: 'Disability Plates', desc: 'For qualifying individuals. Grant accessible parking privileges and are issued by state DMVs.' },
-  { emoji: '⭐', name: 'Specialty Plates', desc: 'Supporting causes, colleges, military service, or professions. Often personalizable for an extra fee.' },
-  { emoji: '📋', name: 'Temporary Plates', desc: 'Paper or cardboard tags used while permanent registration is being processed after a sale.' },
+  { icon: <Car size={24} />, name: 'Standard Plates', desc: 'Issued to most passenger vehicles. Feature state name, unique alphanumeric code, and sometimes a slogan or image.' },
+  { icon: <Truck size={24} />, name: 'Commercial Plates', desc: 'For trucks and business vehicles. May include weight classifications or other commercial designations.' },
+  { icon: <Building2 size={24} />, name: 'Antique/Collector Plates', desc: 'For classic or vintage vehicles. Typically come with restrictions on how the vehicle may be used.' },
+  { icon: <Accessibility size={24} />, name: 'Disability Plates', desc: 'For qualifying individuals. Grant accessible parking privileges and are issued by state DMVs.' },
+  { icon: <Star size={24} />, name: 'Specialty Plates', desc: 'Supporting causes, colleges, military service, or professions. Often personalizable for an extra fee.' },
+  { icon: <ClipboardList size={24} />, name: 'Temporary Plates', desc: 'Paper or cardboard tags used while permanent registration is being processed after a sale.' },
 ];
 
 // ─── How It Works steps ───────────────────────────────────────────────────────
@@ -83,11 +87,11 @@ const TESTIMONIALS = [
 
 // ─── Jason Story ──────────────────────────────────────────────────────────────
 const JASON_ISSUES = [
-  { flag: '⚠️', issue: 'Declared a total loss by insurance' },
-  { flag: '⚠️', issue: 'Additional minor + major damage incident' },
-  { flag: '⚠️', issue: 'Multiple collisions — possible structural damage' },
-  { flag: '⚠️', issue: 'Active lien — Jason wouldn\'t fully own it' },
-  { flag: '⚠️', issue: 'Major safety issues: airbags, brakes, electronics' },
+  { flag: <AlertTriangle size={16} className="text-[#ef4444]" />, issue: 'Declared a total loss by insurance' },
+  { flag: <AlertTriangle size={16} className="text-[#ef4444]" />, issue: 'Additional minor + major damage incident' },
+  { flag: <AlertTriangle size={16} className="text-[#ef4444]" />, issue: 'Multiple collisions — possible structural damage' },
+  { flag: <AlertTriangle size={16} className="text-[#ef4444]" />, issue: 'Active lien — Jason wouldn\'t fully own it' },
+  { flag: <AlertTriangle size={16} className="text-[#ef4444]" />, issue: 'Major safety issues: airbags, brakes, electronics' },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -104,9 +108,6 @@ export default function LicensePlateLookupPage() {
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
           {/* Decorative ruled lines */}
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
@@ -131,7 +132,9 @@ export default function LicensePlateLookupPage() {
                 fontSize: '18px',
                 transform: 'rotate(-1.5deg)',
               }}>
-                🚗 Unlock Vehicle History in Seconds
+                <div className="flex items-center gap-2">
+                  <Car size={20} /> Unlock Vehicle History in Seconds
+                </div>
               </div>
 
               <h1
@@ -169,7 +172,7 @@ export default function LicensePlateLookupPage() {
             >
               {/* Sticky note label */}
               <div
-                className="absolute -top-4 left-5 px-3 py-1"
+                className="absolute -top-4 left-5 px-3 py-1 flex items-center gap-1"
                 style={{
                   backgroundColor: '#FFF9C4',
                   border: '2px solid #004B22',
@@ -180,7 +183,7 @@ export default function LicensePlateLookupPage() {
                   fontSize: '14px',
                 }}
               >
-                Enter plate + state 👇
+                Enter plate + state <ArrowDown size={14} />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
@@ -244,8 +247,16 @@ export default function LicensePlateLookupPage() {
               className="flex flex-wrap justify-center gap-6 mt-10"
               style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41' }}
             >
-              {['✅ All 50 States', '⚡ Instant Results', '🔒 100% Private', '📋 330M+ Records', '👥 Trusted by 2M+ Users'].map((badge) => (
-                <span key={badge} className="px-4 py-2 bg-white" style={{ border: '1.5px solid #004B22', borderRadius: '4px' }}>{badge}</span>
+              {[
+                { icon: <CheckCircle size={16} className="text-[#0EB075]" />, text: 'All 50 States' },
+                { icon: <Zap size={16} className="text-[#0EB075]" />, text: 'Instant Results' },
+                { icon: <Lock size={16} className="text-[#0EB075]" />, text: '100% Private' },
+                { icon: <ClipboardList size={16} className="text-[#0EB075]" />, text: '330M+ Records' },
+                { icon: <Users size={16} className="text-[#0EB075]" />, text: 'Trusted by 2M+ Users' }
+              ].map((b, i) => (
+                <span key={i} className="px-4 py-2 bg-white flex items-center gap-2" style={{ border: '1.5px solid #004B22', borderRadius: '4px' }}>
+                  {b.icon} {b.text}
+                </span>
               ))}
             </motion.div>
           </div>
@@ -299,8 +310,8 @@ export default function LicensePlateLookupPage() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Seller's pitch */}
               <div style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '2px solid rgba(255,255,255,0.2)', borderRadius: '4px', padding: '28px' }}>
-                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#ef4444', marginBottom: '16px' }}>
-                  🚩 What the Seller Said
+                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#ef4444', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Flag size={20} /> What the Seller Said
                 </div>
                 {[
                   '"One careful owner, never been in an accident."',
@@ -316,12 +327,12 @@ export default function LicensePlateLookupPage() {
 
               {/* What the report showed */}
               <div style={{ backgroundColor: 'rgba(14,176,117,0.12)', border: '2px solid #0EB075', borderRadius: '4px', padding: '28px' }}>
-                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#0EB075', marginBottom: '16px' }}>
-                  📋 What the Plate Lookup Found
+                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#0EB075', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ClipboardList size={20} /> What the Plate Lookup Found
                 </div>
                 {JASON_ISSUES.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 mb-4">
-                    <span style={{ fontSize: '16px', flexShrink: 0, marginTop: '2px' }}>{item.flag}</span>
+                    <span className="shrink-0 mt-1">{item.flag}</span>
                     <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.6' }}>{item.issue}</p>
                   </div>
                 ))}
@@ -331,12 +342,12 @@ export default function LicensePlateLookupPage() {
             {/* Outcome stats */}
             <div className="mt-12 flex flex-wrap justify-center gap-10">
               {[
-                { emoji: '🛡️', val: '100%', label: 'Avoidance of a total-loss car' },
-                { emoji: '💸', val: '$0', label: 'Lost to a bad deal' },
-                { emoji: '⏱️', val: '60 sec', label: 'Time to run the lookup' },
+                { icon: <Shield size={32} className="text-[#0EB075]" />, val: '100%', label: 'Avoidance of a total-loss car' },
+                { icon: <DollarSign size={32} className="text-[#0EB075]" />, val: '$0', label: 'Lost to a bad deal' },
+                { icon: <Clock size={32} className="text-[#0EB075]" />, val: '60 sec', label: 'Time to run the lookup' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div style={{ fontSize: '32px', marginBottom: '4px' }}>{stat.emoji}</div>
+                  <div className="flex justify-center mb-2">{stat.icon}</div>
                   <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '28px', color: '#0EB075' }}>{stat.val}</div>
                   <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: 'rgba(255,255,255,0.65)', maxWidth: '120px' }}>{stat.label}</div>
                 </div>
@@ -355,7 +366,9 @@ export default function LicensePlateLookupPage() {
                   className="inline-block mb-5 px-4 py-2"
                   style={{ backgroundColor: '#fee2e2', border: '2px solid #ef4444', borderRadius: '4px', fontFamily: '"Gochi Hand", cursive', color: '#ef4444', fontSize: '16px' }}
                 >
-                  🚨 Avoid Buying Damaged Vehicles
+                  <div className="flex items-center gap-2">
+                    <Bell size={18} /> Avoid Buying Damaged Vehicles
+                  </div>
                 </div>
                 <h2 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#111827', marginBottom: '16px' }}>
                   Don&apos;t Get Stuck with Someone Else&apos;s Wreck
@@ -387,7 +400,9 @@ export default function LicensePlateLookupPage() {
                   className="inline-block mb-5 px-4 py-2"
                   style={{ backgroundColor: '#FFF9C4', border: '2px solid #004B22', borderRadius: '4px', fontFamily: '"Gochi Hand", cursive', color: '#004B22', fontSize: '16px' }}
                 >
-                  🔍 Spot Lien and Loan Records
+                  <div className="flex items-center gap-2">
+                    <Search size={18} /> Spot Lien and Loan Records
+                  </div>
                 </div>
                 <h3 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '1.8rem', color: '#111827', marginBottom: '14px' }}>
                   If There&apos;s a Lien, It&apos;s Your Problem Now
@@ -478,7 +493,7 @@ export default function LicensePlateLookupPage() {
                     boxShadow: '4px 4px 0 0 #004B22',
                   }}
                 >
-                  <div style={{ fontSize: '32px', marginBottom: '10px' }}>{pt.emoji}</div>
+                  <div className="text-[#0EB075] mb-4">{pt.icon}</div>
                   <h3 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#111827', marginBottom: '8px' }}>{pt.name}</h3>
                   <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41', lineHeight: '1.7' }}>{pt.desc}</p>
                 </div>
@@ -573,7 +588,7 @@ export default function LicensePlateLookupPage() {
                 >
                   <div className="flex gap-0.5 mb-4">
                     {Array.from({ length: t.stars }).map((_, si) => (
-                      <span key={si} style={{ fontSize: '18px' }}>⭐</span>
+                      <Star key={si} size={18} fill="#FFD700" color="#FFD700" />
                     ))}
                   </div>
                   <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: '#3D4A41', lineHeight: '1.7', marginBottom: '16px', fontStyle: 'italic' }}>
@@ -665,7 +680,9 @@ export default function LicensePlateLookupPage() {
                 fontSize: '16px',
               }}
             >
-              🔍 Run a License Plate Lookup Today
+              <div className="flex items-center gap-2">
+                <Search size={18} /> Run a License Plate Lookup Today
+              </div>
             </div>
             <h2 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', marginBottom: '16px' }}>
               Get Started — Instantly.{' '}

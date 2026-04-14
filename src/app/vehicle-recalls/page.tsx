@@ -28,9 +28,6 @@ export default function VehicleRecallsPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
             <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
@@ -39,7 +36,9 @@ export default function VehicleRecallsPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#EF4444', fontSize: '18px', transform: 'rotate(-1.5deg)',
               }}>
-                ⚠️ Critical Safety Alerts
+                <div className="flex items-center gap-2">
+                  <AlertTriangle size={20} /> Critical Safety Alerts
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6" 

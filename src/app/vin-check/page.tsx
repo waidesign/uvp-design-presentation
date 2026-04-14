@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import {
   Search, ChevronDown, CheckCircle, AlertTriangle, Shield,
   FileText, Clock, Users, Wrench, Building2, Car, ArrowRight,
+  ArrowDown, CircleCheck, Zap, Lock, ClipboardList, Globe, ShieldCheck,
+  Star, DollarSign, Lightbulb, AlertCircle
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
@@ -60,17 +62,17 @@ const VIN_USERS = [
 
 // ─── Without vs With VIN check ────────────────────────────────────────────────
 const WITHOUT = [
-  { flag: '🚨', issue: 'Rear-end accident — never mentioned', detail: 'Police report filed July 2022 in Upland, CA. Vehicle was towed from the scene.' },
-  { flag: '🚨', issue: 'Salvage title — not clean', detail: 'Transferred to an insurance company after the accident, then sold at salvage auction for $5,250.' },
-  { flag: '🚨', issue: 'Two active liens on the vehicle', detail: 'Someone else has a legal claim. You could buy the car and still lose it.' },
-  { flag: '🚨', issue: '10 recalls — transmission, steering, seats', detail: 'None of the 10 open NHTSA recalls had been addressed.' },
+  { icon: <AlertCircle size={18} className="text-[#ef4444]" />, issue: 'Rear-end accident — never mentioned', detail: 'Police report filed July 2022 in Upland, CA. Vehicle was towed from the scene.' },
+  { icon: <AlertCircle size={18} className="text-[#ef4444]" />, issue: 'Salvage title — not clean', detail: 'Transferred to an insurance company after the accident, then sold at salvage auction for $5,250.' },
+  { icon: <AlertCircle size={18} className="text-[#ef4444]" />, issue: 'Two active liens on the vehicle', detail: 'Someone else has a legal claim. You could buy the car and still lose it.' },
+  { icon: <AlertCircle size={18} className="text-[#ef4444]" />, issue: '10 recalls — transmission, steering, seats', detail: 'None of the 10 open NHTSA recalls had been addressed.' },
 ];
 
 const WITH = [
-  { flag: '✅', issue: 'Full accident record surfaced instantly', detail: 'Police report number, date, location, and tow are all documented.' },
-  { flag: '✅', issue: 'Salvage title flagged, with auction photos', detail: 'You see the real damage condition before speaking to the seller.' },
-  { flag: '✅', issue: 'Both liens visible, with dates and sources', detail: 'You know to demand a lien release before any money changes hands.' },
-  { flag: '✅', issue: 'All 10 recalls listed with components and status', detail: 'You walk away — or negotiate $4,000 off for unaddressed safety issues.' },
+  { icon: <CheckCircle size={18} className="text-[#0EB075]" />, issue: 'Full accident record surfaced instantly', detail: 'Police report number, date, location, and tow are all documented.' },
+  { icon: <CheckCircle size={18} className="text-[#0EB075]" />, issue: 'Salvage title flagged, with auction photos', detail: 'You see the real damage condition before speaking to the seller.' },
+  { icon: <CheckCircle size={18} className="text-[#0EB075]" />, issue: 'Both liens visible, with dates and sources', detail: 'You know to demand a lien release before any money changes hands.' },
+  { icon: <CheckCircle size={18} className="text-[#0EB075]" />, issue: 'All 10 recalls listed with components and status', detail: 'You walk away — or negotiate $4,000 off for unaddressed safety issues.' },
 ];
 
 // ─── Where to find VIN ────────────────────────────────────────────────────────
@@ -119,9 +121,6 @@ export default function VinCheckPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
@@ -138,7 +137,9 @@ export default function VinCheckPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#004B22', fontSize: '18px', transform: 'rotate(-1.5deg)',
               }}>
-                🔍 See the Real Story Behind Any Vehicle
+                <div className="flex items-center gap-2">
+                  <Search size={18} /> See the Real Story Behind Any Vehicle
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6"
@@ -162,11 +163,11 @@ export default function VinCheckPage() {
               className="relative mx-auto"
               style={{ backgroundColor: '#fff', border: '2px solid #004B22', borderRadius: '4px', padding: '28px', maxWidth: '700px', boxShadow: '5px 5px 0 0 #004B22' }}
             >
-              <div className="absolute -top-4 left-5 px-3 py-1" style={{
+              <div className="absolute -top-4 left-5 px-3 py-1 flex items-center gap-1" style={{
                 backgroundColor: '#FFF9C4', border: '2px solid #004B22', borderRadius: '4px',
                 transform: 'rotate(-2deg)', fontFamily: '"Gochi Hand", cursive', color: '#004B22', fontSize: '14px',
               }}>
-                Paste VIN here 👇
+                Paste VIN here <ArrowDown size={14} />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
@@ -205,8 +206,16 @@ export default function VinCheckPage() {
               className="flex flex-wrap justify-center gap-5 mt-10"
               style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: '#3D4A41' }}
             >
-              {['✅ No Sign-Up Required', '⚡ Instant Results', '🔒 100% Private', '📋 330M+ Records', '🌍 International VINs'].map((b) => (
-                <span key={b} className="px-4 py-2 bg-white" style={{ border: '1.5px solid #004B22', borderRadius: '4px' }}>{b}</span>
+              {[
+                { icon: <CircleCheck size={14} className="text-[#0EB075]" />, text: 'No Sign-Up Required' },
+                { icon: <Zap size={14} className="text-[#0EB075]" />, text: 'Instant Results' },
+                { icon: <Lock size={14} className="text-[#0EB075]" />, text: '100% Private' },
+                { icon: <ClipboardList size={14} className="text-[#0EB075]" />, text: '330M+ Records' },
+                { icon: <Globe size={14} className="text-[#0EB075]" />, text: 'International VINs' }
+              ].map((b, i) => (
+                <span key={i} className="px-4 py-2 bg-white flex items-center gap-2" style={{ border: '1.5px solid #004B22', borderRadius: '4px' }}>
+                  {b.icon} {b.text}
+                </span>
               ))}
             </motion.div>
           </div>
@@ -229,7 +238,7 @@ export default function VinCheckPage() {
                 {WITHOUT.map((item, i) => (
                   <div key={i} className="mb-5">
                     <div className="flex items-start gap-3 mb-1">
-                      <span style={{ fontSize: '16px', flexShrink: 0 }}>{item.flag}</span>
+                      <span className="mt-1 flex-shrink-0">{item.icon}</span>
                       <p style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '17px', color: '#fca5a5' }}>{item.issue}</p>
                     </div>
                     <p className="pl-7" style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}>{item.detail}</p>
@@ -239,11 +248,13 @@ export default function VinCheckPage() {
 
               {/* With */}
               <div style={{ backgroundColor: 'rgba(14,176,117,0.1)', border: '2px solid #0EB075', borderRadius: '4px', padding: '28px' }}>
-                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '22px', color: '#0EB075', marginBottom: '20px' }}>🛡️ With a VIN Check</div>
+                <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '22px', color: '#0EB075', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={24} /> With a VIN Check
+                </div>
                 {WITH.map((item, i) => (
                   <div key={i} className="mb-5">
                     <div className="flex items-start gap-3 mb-1">
-                      <span style={{ fontSize: '16px', flexShrink: 0 }}>{item.flag}</span>
+                      <span className="mt-1 flex-shrink-0">{item.icon}</span>
                       <p style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '17px', color: '#6ee7b7' }}>{item.issue}</p>
                     </div>
                     <p className="pl-7" style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: 'rgba(255,255,255,0.75)', lineHeight: '1.6' }}>{item.detail}</p>
@@ -255,12 +266,12 @@ export default function VinCheckPage() {
             {/* Outcome */}
             <div className="mt-12 flex flex-wrap justify-center gap-10">
               {[
-                { emoji: '💰', val: '$4,000+', label: 'Negotiated off asking price' },
-                { emoji: '⏱️', val: '60 sec', label: 'Time to run the check' },
-                { emoji: '💡', val: '100%', label: 'Informed decision made' },
+                { icon: <DollarSign size={32} className="text-[#0EB075]" />, val: '$4,000+', label: 'Negotiated off asking price' },
+                { icon: <Clock size={32} className="text-[#0EB075]" />, val: '60 sec', label: 'Time to run the check' },
+                { icon: <Lightbulb size={32} className="text-[#0EB075]" />, val: '100%', label: 'Informed decision made' },
               ].map((s) => (
                 <div key={s.label} className="text-center">
-                  <div style={{ fontSize: '32px', marginBottom: '4px' }}>{s.emoji}</div>
+                  <div className="flex justify-center mb-2">{s.icon}</div>
                   <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '28px', color: '#0EB075' }}>{s.val}</div>
                   <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: 'rgba(255,255,255,0.65)', maxWidth: '130px' }}>{s.label}</div>
                 </div>
@@ -319,7 +330,9 @@ export default function VinCheckPage() {
               {/* On the body */}
               <div style={{ backgroundColor: '#fff', border: '2px solid #004B22', borderRadius: '4px', overflow: 'hidden', boxShadow: '5px 5px 0 0 #004B22' }}>
                 <div style={{ backgroundColor: '#004B22', padding: '14px 24px' }}>
-                  <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#fff' }}>🚗 On the Vehicle&apos;s Body</div>
+                  <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Car size={24} /> On the Vehicle&apos;s Body
+                  </div>
                 </div>
                 <div style={{ padding: '24px' }}>
                   {VIN_LOCATIONS_BODY.map((loc, i) => (
@@ -340,7 +353,9 @@ export default function VinCheckPage() {
               {/* In the paperwork */}
               <div style={{ backgroundColor: '#fff', border: '2px solid #004B22', borderRadius: '4px', overflow: 'hidden', boxShadow: '5px 5px 0 0 #004B22' }}>
                 <div style={{ backgroundColor: '#004B22', padding: '14px 24px' }}>
-                  <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#fff' }}>📄 In the Paperwork</div>
+                  <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <FileText size={24} /> In the Paperwork
+                  </div>
                 </div>
                 <div style={{ padding: '24px' }}>
                   {VIN_LOCATIONS_DOCS.map((loc, i) => (
@@ -407,7 +422,7 @@ export default function VinCheckPage() {
                   borderRadius: '4px', padding: '28px', boxShadow: '4px 4px 0 0 #004B22',
                 }}>
                   <div className="flex gap-0.5 mb-4">
-                    {Array.from({ length: t.stars }).map((_, si) => <span key={si} style={{ fontSize: '18px' }}>⭐</span>)}
+                    {Array.from({ length: t.stars }).map((_, si) => <Star key={si} size={18} fill="#FFD700" color="#FFD700" />)}
                   </div>
                   <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41', lineHeight: '1.7', marginBottom: '16px', fontStyle: 'italic' }}>
                     &ldquo;{t.text}&rdquo;
@@ -512,7 +527,9 @@ export default function VinCheckPage() {
               backgroundColor: '#0EB075', border: '2px solid rgba(255,255,255,0.3)',
               borderRadius: '4px', fontFamily: '"Gochi Hand", cursive', color: '#fff', fontSize: '16px',
             }}>
-              🔍 Run Your VIN Check — No Sign-Up
+              <div className="flex items-center gap-2">
+                <Search size={18} /> Run Your VIN Check — No Sign-Up
+              </div>
             </div>
             <h2 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', marginBottom: '16px' }}>
               The Real Story is One{' '}
@@ -544,10 +561,10 @@ export default function VinCheckPage() {
             </div>
             <div className="flex flex-wrap justify-center gap-4 mt-8"
               style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: 'rgba(255,255,255,0.65)' }}>
-              <span>🔒 100% Private</span>
-              <span>⚡ Instant Report</span>
-              <span>📋 330M+ Records</span>
-              <span>🌍 International Support</span>
+              <span className="flex items-center gap-1"><Lock size={12} /> 100% Private</span>
+              <span className="flex items-center gap-1"><Zap size={12} /> Instant Report</span>
+              <span className="flex items-center gap-1"><ClipboardList size={12} /> 330M+ Records</span>
+              <span className="flex items-center gap-1"><Globe size={12} /> International Support</span>
             </div>
           </div>
         </section>

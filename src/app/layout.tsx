@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import AgentWrapper from './AgentWrapper';
+import { Agentation } from "agentation";
 
 export const metadata: Metadata = {
   title: 'UsedVehiclePro - Free VIN Check & Vehicle History Report',
@@ -21,7 +21,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <AgentWrapper />
+        {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
   );

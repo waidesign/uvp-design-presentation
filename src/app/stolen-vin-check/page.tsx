@@ -52,9 +52,6 @@ export default function StolenVINCheckPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-           <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
@@ -70,7 +67,9 @@ export default function StolenVINCheckPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#004B22', fontSize: '18px', transform: 'rotate(-1.5deg)',
               }}>
-                🚓 Instant Police Record Scan
+                <div className="flex items-center gap-2">
+                  <ShieldAlert size={20} /> Instant Police Record Scan
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6" 
@@ -97,7 +96,7 @@ export default function StolenVINCheckPage() {
                 backgroundColor: '#FFF9C4', border: '2px solid #004B22', borderRadius: '4px', 
                 transform: 'rotate(-2deg)', fontFamily: '"Gochi Hand", cursive', color: '#004B22', fontSize: '14px',
               }}>
-                Scan Police Database 👇
+                Scan Police Database
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ChevronDown, Shield, AlertTriangle, Info, 
   CheckCircle, FileText, Ban, HelpCircle, ArrowRight,
-  Car, Wallet, BarChart3, Lock, Clock
+  Car, Wallet, BarChart3, Lock, Clock, ArrowDown, OctagonAlert
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
@@ -79,9 +79,6 @@ export default function LienCheckPage() {
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
           {/* Grid background effect */}
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
@@ -98,7 +95,9 @@ export default function LienCheckPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#004B22', fontSize: '18px', transform: 'rotate(-1.5deg)',
               }}>
-                🛑 Don&apos;t Inherit Someone Else&apos;s Debt
+                <div className="flex items-center gap-2">
+                  <OctagonAlert size={18} /> Don&apos;t Inherit Someone Else&apos;s Debt
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6" 
@@ -121,11 +120,11 @@ export default function LienCheckPage() {
               className="relative mx-auto mt-4" 
               style={{ backgroundColor: '#fff', border: '2px solid #004B22', borderRadius: '4px', padding: '28px', maxWidth: '700px', boxShadow: '5px 5px 0 0 #004B22' }}
             >
-              <div className="absolute -top-4 left-5 px-3 py-1" style={{ 
+              <div className="absolute -top-4 left-5 px-3 py-1 flex items-center gap-1" style={{ 
                 backgroundColor: '#FFF9C4', border: '2px solid #004B22', borderRadius: '4px', 
                 transform: 'rotate(-2deg)', fontFamily: '"Gochi Hand", cursive', color: '#004B22', fontSize: '14px',
               }}>
-                Enter VIN here 👇
+                Enter VIN here <ArrowDown size={14} />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-2">
@@ -237,7 +236,9 @@ export default function LienCheckPage() {
                   padding: '24px', boxShadow: '10px 10px 0 0 #0EB075', transform: 'rotate(1deg)'
                 }}>
                   <div className="flex justify-between items-center mb-6 pb-4 border-b border-dashed border-slate-200">
-                    <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#111827' }}>⚠️ Financial Risk Detected</div>
+                    <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#111827', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <AlertTriangle size={20} /> Financial Risk Detected
+                    </div>
                     <div style={{ backgroundColor: '#ef4444', color: '#fff', padding: '2px 8px', borderRadius: '4px', fontSize: '10px', fontFamily: '"Space Mono", monospace' }}>ACTIVE LIEN</div>
                   </div>
                   <div className="space-y-4">

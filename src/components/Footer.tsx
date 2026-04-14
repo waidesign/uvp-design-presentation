@@ -104,7 +104,7 @@ export default function Footer() {
               UsedVehiclePro
             </div>
             <p className="p-color-white" style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '18px', color: '#ffffff' }}>
-              ©️2026 UsedVehiclePro. All rights reserved.
+              &copy; 2026 UsedVehiclePro. All rights reserved.
             </p>
           </div>
 

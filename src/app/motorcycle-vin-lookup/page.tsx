@@ -42,9 +42,6 @@ export default function MotorcycleVINLookupPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-28 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-6xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center relative z-10">
             <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
@@ -53,7 +50,9 @@ export default function MotorcycleVINLookupPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#004B22', fontSize: '18px', transform: 'rotate(-1.5deg)',
               }}>
-                🏍️ Rider Protection Hub
+                <div className="flex items-center gap-2">
+                  <Bike size={20} /> Rider Protection Hub
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6" 

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Search, ShieldCheck, AlertCircle, FileText, ChevronRight } from 'lucide-react';
+import { Search, ShieldCheck, AlertCircle, FileText, ChevronRight, ArrowDown, Car, Flag } from 'lucide-react';
 import { CarIcon, MotorcycleIcon, TruckIcon, RVIcon } from './VehicleIcons';
 
 const damagedCarImg = '/assets/damaged_car_sketch.png';
@@ -57,7 +57,7 @@ export default function Hero() {
             >
               {/* "Type it here!" label */}
               <div
-                className="absolute -top-4 left-4 px-3 py-1 font-body text-sm"
+                className="absolute -top-4 left-4 px-3 py-1 font-body text-sm flex items-center gap-1"
                 style={{
                   backgroundColor: '#FFFFFF',
                   border: '2px solid #004B22',
@@ -67,7 +67,7 @@ export default function Hero() {
                   color: '#004B22'
                 }}
               >
-                Type it here! 👇
+                Type it here! <ArrowDown size={14} />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mt-1">
@@ -200,7 +200,9 @@ export default function Hero() {
                   transition={{ type: 'spring', stiffness: 60, damping: 15 }}
                 >
                   <div className="text-center">
-                    <div style={{ fontSize: '72px', marginBottom: '12px' }}>🚗</div>
+                    <div className="mb-3 flex justify-center text-[#0EB075]">
+                      <Car size={72} />
+                    </div>
                     <div className="font-body" style={{ fontSize: '14px', color: '#004B22', fontWeight: 700, fontFamily: '"Space Mono", monospace' }}>Vehicle History Report</div>
                     <div className="font-body mt-2" style={{ fontSize: '11px', color: '#666', fontFamily: '"Space Mono", monospace' }}>ID: 1G1RC6E40BU123456</div>
                   </div>
@@ -213,7 +215,7 @@ export default function Hero() {
                 style={{ transform: 'rotate(-6deg)' }}
               >
                 <div 
-                  className="bg-white px-6 py-2 border border-[#EA4335] rounded-[4px]"
+                  className="bg-white px-6 py-2 border border-[#EA4335] rounded-[4px] flex items-center gap-2"
                   style={{ 
                     boxShadow: '2px 2px 0px 0px #EA4335',
                     color: '#EA4335',
@@ -222,7 +224,7 @@ export default function Hero() {
                     fontWeight: 400
                   }}
                 >
-                  Check this!🚩
+                  Check this! <Flag size={18} fill="#EA4335" />
                 </div>
               </div>
             </motion.div>
@@ -239,6 +241,7 @@ export default function Hero() {
                 <span style={{ fontSize: '16px' }}>Click to reveal the truth!</span>
               </motion.div>
             )}
+
           </div>
         </div>
       </div>

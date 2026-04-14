@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  CheckCircle, ChevronDown, Check, X, CreditCard, Shield, Star, Award, TrendingDown
+  CheckCircle, ChevronDown, Check, X, CreditCard, Shield, Star, Award, TrendingDown, DollarSign
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
@@ -66,9 +66,6 @@ export default function PricingPage() {
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
         <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
-          <div className="absolute inset-0 pointer-events-none opacity-5" style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, #004B22 0px, transparent 1px, transparent 40px)',
-          }} />
 
           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -77,7 +74,9 @@ export default function PricingPage() {
                 boxShadow: '3px 3px 0 0 #004B22', fontFamily: '"Gochi Hand", cursive',
                 color: '#004B22', fontSize: '18px', transform: 'rotate(-2deg)',
               }}>
-                💵 Straightforward Pricing
+                <div className="flex items-center gap-2">
+                  <DollarSign size={20} /> Straightforward Pricing
+                </div>
               </div>
 
               <h1 className="leading-tight mb-6" 
