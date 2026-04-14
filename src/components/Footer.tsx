@@ -15,13 +15,20 @@ export default function Footer() {
             <h3 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '24px', color: '#ffffff' }}>Products</h3>
             <ul className="flex flex-col gap-2">
               {[
-                'Vehicle History Report', 'Classic Car VIN Lookup', 'Window Sticker', 
-                'VIN Checker', 'VIN Lookup', 'VIN Decoder', 
-                'License Plate Lookup', 'Title Check', 'Recalls Check', 'Maintenance'
-              ].map((link) => (
-                <li key={link}>
-                  <a href="#" className="hover:text-[#0eb075] transition-colors" style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#f1f1f1' }}>
-                    {link}
+                { label: 'VIN Check', href: '/vin-check' },
+                { label: 'Lien Check', href: '/lien-check' },
+                { label: 'Title Check', href: '/title-check' },
+                { label: 'Stolen VIN Check', href: '/stolen-vin-check' },
+                { label: 'Window Sticker', href: '/window-sticker' },
+                { label: 'Classic Car VIN Lookup', href: '/classic-vin-decoder' },
+                { label: 'Build Sheet', href: '/build-sheet-by-vin' },
+                { label: 'Service Records', href: '/service-records-by-vin' },
+                { label: 'Warranty Lookup', href: '/warranty-by-vin' },
+                { label: 'Recall Check', href: '/vehicle-recalls' }
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="hover:text-[#0eb075] transition-colors" style={{ fontFamily: '"Space Mono", monospace', fontSize: '15px', color: '#f1f1f1' }}>
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -33,12 +40,17 @@ export default function Footer() {
             <h3 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '24px', color: '#ffffff' }}>Resources</h3>
             <ul className="flex flex-col gap-2">
               {[
-                'Bill of sale', 'Dealers', 'Privacy Policy', 
-                'Terms and Conditions', 'Compare Cars', 'Sell Car'
-              ].map((link) => (
-                <li key={link}>
-                  <a href="#" className="hover:text-[#0eb075] transition-colors" style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#f1f1f1' }}>
-                    {link}
+                { label: 'Bill of Sale', href: '/bill-of-sale' },
+                { label: 'Motorcycle VIN Lookup', href: '/motorcycle-vin-lookup' },
+                { label: 'Truck VIN Lookup', href: '/truck-vin-lookup' },
+                { label: 'RV VIN Lookup', href: '/rv-vin-lookup' },
+                { label: 'Trailer VIN Lookup', href: '/trailer-vin-lookup' },
+                { label: 'ATV VIN Check', href: '/atv-vin-check' },
+                { label: 'License Plate Lookup', href: '/license-plate-lookup' }
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="hover:text-[#0eb075] transition-colors" style={{ fontFamily: '"Space Mono", monospace', fontSize: '15px', color: '#f1f1f1' }}>
+                    {item.label}
                   </a>
                 </li>
               ))}
