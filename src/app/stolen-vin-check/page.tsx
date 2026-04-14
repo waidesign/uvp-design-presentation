@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ChevronDown, CheckCircle, Shield, 
   AlertTriangle, History, Flag, Database, Gavel, 
-  Wallet, ShieldAlert, ArrowRight
+  Wallet, ShieldAlert, ArrowRight, FileText
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';

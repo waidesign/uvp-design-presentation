@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   AlertTriangle, Search, ChevronDown, CheckCircle, Shield, 
   Info, ArrowRight, Database, Settings, 
-  Bell, Phone, MapPin
+  Bell, Phone, MapPin, FileText
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
