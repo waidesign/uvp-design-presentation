@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   AlertTriangle, Search, ChevronDown, CheckCircle, Shield, 
   Info, ArrowRight, Database, Settings, 
-  Bell, Phone, MapPin, Tooltip
+  Bell, Phone, MapPin
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
@@ -101,11 +101,11 @@ export default function VehicleRecallsPage() {
                
                <div className="space-y-4">
                   <div className="p-4 bg-slate-50 border border-slate-200 rounded flex gap-4 items-start">
-                     <Tooltip size={18} className="text-[#0EB075] shrink-0 mt-1" />
+                     <Info size={18} className="text-[#0EB075] shrink-0 mt-1" />
                      <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '11px', color: '#64748b' }}>Includes repairs for steering, brakes, airbags, seatbelts, and fuel systems.</p>
                   </div>
                   <div className="p-4 bg-slate-50 border border-slate-200 rounded flex gap-4 items-start">
-                     <Tooltip size={18} className="text-[#0EB075] shrink-0 mt-1" />
+                     <Info size={18} className="text-[#0EB075] shrink-0 mt-1" />
                      <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '11px', color: '#64748b' }}>Valid at any manufacturer-authorized dealership in the United States.</p>
                   </div>
                </div>
