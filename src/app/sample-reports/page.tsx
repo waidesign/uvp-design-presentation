@@ -217,9 +217,9 @@ export default function SampleReportsPage() {
                        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-[#004B22]">
                           <Database size={20} className="text-[#0EB075]" />
                        </div>
-                       <h4 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', marginBottom: '8px' }}>We're here to help!</h4>
+                       <h4 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', marginBottom: '8px' }}>We&apos;re here to help!</h4>
                        <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: '#4B5563' }}>
-                          If you can't find your specific vehicle configuration in our samples, reach out to our team.
+                          If you can&apos;t find your specific vehicle configuration in our samples, reach out to our team.
                        </p>
                     </div>
                  </div>

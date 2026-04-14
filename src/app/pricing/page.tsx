@@ -174,7 +174,7 @@ export default function PricingPage() {
                  <div className="flex flex-col items-center">
                     <Award size={40} className="text-[#0EB075] mb-4" />
                     <h4 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '24px', marginBottom: '12px' }}>Data Guarantee</h4>
-                    <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', opacity: 0.8 }}>If we can't find your vehicle's VIN, we won't charge you for the search.</p>
+                    <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', opacity: 0.8 }}>If we can&apos;t find your vehicle&apos;s VIN, we won&apos;t charge you for the search.</p>
                  </div>
               </div>
            </div>

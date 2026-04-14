@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronDown, Search, Shield, FileText, AlertTriangle, Clock, BookOpen, FileCheck, Bike, Truck, Caravan, Tractor, Clipboard, History } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Shield, FileText, AlertTriangle, Clock, BookOpen, FileCheck, Bike, Truck, Caravan, Tractor, ClipboardList, History } from 'lucide-react';
 import Logo from './Logo';
 
 // ─── Simple nav links ─────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ const vinChecks = [
   { icon: <FileText size={15} />, label: 'Title Check', href: '/title-check' },
   { icon: <AlertTriangle size={15} />, label: 'Stolen VIN Check', href: '/stolen-vin-check' },
   { icon: <Clock size={15} />, label: 'MSRP by VIN', href: '/window-sticker' },
-  { icon: <Clipboard size={15} />, label: 'Build Sheet by VIN', href: '/build-sheet-by-vin' },
+  { icon: <ClipboardList size={15} />, label: 'Build Sheet by VIN', href: '/build-sheet-by-vin' },
   { icon: <History size={15} />, label: 'Service Records by VIN', href: '/service-records-by-vin' },
   { icon: <Shield size={15} />, label: 'Warranty by VIN', href: '/warranty-by-vin' },
   { icon: <AlertTriangle size={15} />, label: 'Recall Check', href: '/vehicle-recalls' },

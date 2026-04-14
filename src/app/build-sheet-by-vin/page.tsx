@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   FileText, Search, ChevronDown, CheckCircle, Shield, 
   Info, ArrowRight, Database, Settings, History,
-  Clipboard, Hammer, Palette, Cog, LayoutList
+  ClipboardList, Hammer, Palette, Cog, LayoutList
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';

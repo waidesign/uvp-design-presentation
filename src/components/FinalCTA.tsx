@@ -1,5 +1,5 @@
 "use client";
-import { Search, ThumbsUp, Clock, MailCheck } from 'lucide-react';
+import { Search, ThumbsUp, Clock, Mail } from 'lucide-react';
 import React from 'react';
 
 export default function FinalCTA() {
@@ -67,7 +67,7 @@ export default function FinalCTA() {
                 <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#f1f1f1', lineHeight: 1.5 }}>Always available</div>
              </div>
              <div className="flex flex-col items-center gap-4">
-                <MailCheck size={48} color="#fff" strokeWidth={1.5} />
+                <Mail size={48} color="#fff" strokeWidth={1.5} />
                 <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '40px', color: '#fff', lineHeight: 1 }}>12-24h</div>
                 <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#f1f1f1', lineHeight: 1.5 }}>Avg. response time</div>
              </div>
