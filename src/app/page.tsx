@@ -9,10 +9,12 @@ import Stats from '../components/Stats';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Blog from '../components/Blog';
+import SocialMedia from '../components/SocialMedia';
 import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
 import VideoDemo from '../components/VideoDemo';
 import UnlimitedPricingCard from '../components/UnlimitedPricingCard';
+import LicensePlateLookup from '../components/LicensePlateLookup';
 import { CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function App() {
@@ -25,6 +27,30 @@ export default function App() {
         {/* Hero Section */}
         <Hero />
 
+        {/* ─────────────── Competitor Comparison ─────────────── */}
+        <section className="py-20" style={{ backgroundColor: '#F9F7F2' }}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h2
+              className="mb-4"
+              style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#1a1a1a' }}
+            >
+              Why pay more for <span style={{ color: '#ef4444' }}>half-truths</span>?
+            </h2>
+            <p
+              className="font-body mb-16 mx-auto opacity-70"
+              style={{ fontFamily: '"Space Mono", monospace', maxWidth: '500px' }}
+            >
+              We provide more data checkpoints than the big names, for less than the price of a takeout lunch.
+            </p>
+
+            <CompetitorComparison />
+
+            <div className="mt-16 text-left">
+              <UnlimitedPricingCard />
+            </div>
+          </div>
+        </section>
+
         {/* ─────────────── Interactive Reveal Section ─────────────── */}
         <section className="py-20" style={{ backgroundColor: '#fff' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -35,7 +61,7 @@ export default function App() {
               >
                 The <span className="wavy-underline-red" style={{ color: '#111827', textDecorationColor: '#EA4335' }}>Full Truth</span> Scanner
               </h2>
-              <p 
+              <p
                 className="font-body mx-auto leading-relaxed"
                 style={{ fontFamily: '"Space Mono", monospace', maxWidth: '520px' }}
               >
@@ -44,7 +70,7 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
               {/* Left Column - Truth Scanner */}
               <div>
                 <TruthScanner />
@@ -59,20 +85,20 @@ export default function App() {
 
               {/* Right Column - Text & CTA */}
               <div>
-                <h3 
-                  className="mb-6 leading-tight"
+                <h3
+                  className="mb-4 leading-tight"
                   style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', color: '#111827' }}
                 >
                   Carfax doesn&apos;t show you the full truth. <span style={{ color: '#EA4335' }}>We do.</span>
                 </h3>
-                <p 
-                  className="font-body mb-10 leading-relaxed"
+                <p
+                  className="font-body mb-8 leading-relaxed"
                   style={{ fontFamily: '"Space Mono", monospace' }}
                 >
                   While our competitors are busy charging you for &quot;brand name&quot; reports that miss crucial data, we&apos;re digging deep into 45+ countries and 330M records to find exactly what happened to that car.
                 </p>
 
-                <div className="flex flex-col gap-6 mb-10">
+                <div className="flex flex-col gap-4 mb-10">
                   <div className="flex items-start gap-4">
                     <CheckCircle size={20} color="#0EB075" strokeWidth={2} className="shrink-0 mt-0.5" />
                     <div>
@@ -88,47 +114,32 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-
-                <div 
-                  className="p-8 sketch-border" 
-                  style={{ backgroundColor: '#F5FDF9', borderColor: '#004B22' }}
-                >
-                    <div style={{ color: '#3D4A41', fontSize: '1.125rem', fontWeight: '400', letterSpacing: 'normal', marginBottom: '12px', fontFamily: '"Space Mono", monospace', lineHeight: '1.75rem' }}>INSTANT CONNECTION</div>
-                   <h4 style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#111827', marginBottom: '16px' }}>
-                     Connect with used car buyers <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
-                   </h4>
-                    <p style={{ fontFamily: '"Space Mono", monospace', marginBottom: '24px' }}>
-                      Don&apos;t wait for &quot;pending updates&quot;. Our database is live. Grab your report and let the buyer know the truth before anyone else does.
-                    </p>
-                   <button className="primary-button font-body text-sm px-6 py-4 w-full transition-all active:scale-95" style={{ fontSize: '14px', fontWeight: '700', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
-                     GET STARTED FOR $19.99
-                   </button>
-                </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ─────────────── Competitor Comparison ─────────────── */}
-        <section className="py-20" style={{ backgroundColor: '#F9F7F2' }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 
-              className="mb-4"
-              style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#1a1a1a' }}
+            {/* Main CTA Row under the columns */}
+            <div
+              className="mt-16 p-8 lg:p-12 sketch-border sketch-shadow"
+              style={{ backgroundColor: '#F5FDF9', borderColor: '#004B22' }}
             >
-              Why pay more for <span style={{ color: '#ef4444' }}>half-truths</span>?
-            </h2>
-            <p 
-              className="font-body mb-16 mx-auto opacity-70"
-              style={{ fontFamily: '"Space Mono", monospace', maxWidth: '500px' }}
-            >
-              We provide more data checkpoints than the big names, for less than the price of a takeout lunch.
-            </p>
-            
-            <CompetitorComparison />
-
-            <div className="mt-16 text-left">
-              <UnlimitedPricingCard />
+              <div className="grid lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8">
+                  <div style={{ color: '#0EB075', fontSize: '0.875rem', fontWeight: '700', letterSpacing: '0.2em', marginBottom: '12px', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
+                    Instant Connection
+                  </div>
+                  <h4 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '28px', color: '#111827', marginBottom: '12px' }}>
+                    Connect with used car buyers <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
+                  </h4>
+                  <p className="max-w-3xl" style={{ fontFamily: '"Space Mono", monospace', fontSize: '16px', color: '#4B5563' }}>
+                    Don&apos;t wait for &quot;pending updates&quot;. Our database is live. Grab your report and let the buyer know the truth before anyone else does.
+                  </p>
+                </div>
+                <div className="lg:col-span-4">
+                  <button className="primary-button font-body px-8 py-5 w-full transition-all active:scale-95" style={{ fontSize: '16px', fontWeight: '700', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
+                    GET STARTED FOR $24.99
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -143,6 +154,9 @@ export default function App() {
         {/* Stats / Fact Card Section */}
         <Stats />
 
+        {/* License Plate Lookup Section */}
+        <LicensePlateLookup />
+
         {/* Testimonials */}
         <Testimonials />
 
@@ -154,6 +168,9 @@ export default function App() {
 
         {/* Blog Section */}
         <Blog />
+
+        {/* Social Media Section */}
+        <SocialMedia />
       </main>
 
       {/* Footer */}

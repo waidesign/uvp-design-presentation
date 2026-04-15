@@ -22,8 +22,8 @@ export default function CompetitorComparison() {
         </div>
         <div className="font-hand text-[#0EB075] mb-2" style={{ fontFamily: '"Kalam", cursive' }}>The Full Truth</div>
         <div className="h-12 flex items-center mb-4">
-           {/* Simple placeholder for logo in context */}
-           <div className="bg-[#0EB075] text-white px-3 py-1 rounded font-bold">UVP</div>
+          {/* Simple placeholder for logo in context */}
+          <div className="bg-[#0EB075] text-white px-3 py-1 rounded font-bold">UVP</div>
         </div>
         <h4 className="text-xl mb-1" style={{ fontFamily: '"Gochi Hand", cursive' }}>UsedVehiclePro</h4>
         <div className="text-3xl font-bold mb-4 text-[#0EB075]" style={{ fontFamily: '"Kalam", cursive' }}>$19.99</div>

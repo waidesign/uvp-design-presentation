@@ -136,8 +136,8 @@ export default function WindowStickerPage() {
                 className="leading-tight mb-6"
                 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#111827' }}
               >
-                Window Sticker{' '}
-                <span className="wavy-underline" style={{ color: '#0EB075', textDecorationColor: '#0EB075' }}>Lookup by VIN</span>
+                Lost for your window sticker?{' '}
+                <span className="wavy-underline" style={{ color: '#0EB075', textDecorationColor: '#0EB075' }}>Look it up by VIN</span> in seconds!
               </h1>
 
               <p className="mb-10 mx-auto leading-relaxed" style={{

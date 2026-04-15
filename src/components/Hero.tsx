@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Search, ShieldCheck, AlertCircle, FileText, ChevronRight, ArrowDown, Car, Flag } from 'lucide-react';
-import { CarIcon, MotorcycleIcon, TruckIcon, RVIcon } from './VehicleIcons';
 
 const damagedCarImg = '/assets/damaged_car_sketch.png';
 const heroFrame = '/assets/hero_frame.svg';
@@ -148,15 +147,18 @@ export default function Hero() {
 
             {/* Vehicle type support */}
             <div
-              className="flex items-center gap-4 font-body"
-              style={{ fontSize: '16px', color: '#111827', fontFamily: '"Space Mono", monospace', fontWeight: 600 }}
+              className="flex flex-wrap items-center gap-y-3 gap-x-4 font-body"
+              style={{ color: '#111827', fontFamily: '"Space Mono", monospace', fontWeight: 600 }}
             >
-              <span>We support:</span>
-              <div className="flex items-center gap-4" style={{ color: '#4B5563' }}>
-                <CarIcon />
-                <MotorcycleIcon />
-                <TruckIcon />
-                <RVIcon />
+              <span className="opacity-60 uppercase tracking-widest text-[12px]" style={{ fontFamily: '"Space Mono", monospace' }}>We support:</span>
+              <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#4B5563]">
+                <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">Cars</span>
+                <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">Motorcycles</span>
+                <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">Trucks</span>
+                <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">RVs</span>
+                <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">ATVs</span>
+                <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">Trailers</span>
+                <span className="whitespace-nowrap">& Heavy Duty</span>
               </div>
             </div>
           </div>

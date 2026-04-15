@@ -22,7 +22,7 @@ export default function TruthScanner() {
       <img 
         src={cleanCarImg} 
         alt="Clean Car" 
-        className="absolute inset-0 w-full h-full object-contain p-8"
+        className="absolute inset-0 w-full h-full object-contain p-4"
       />
 
       {/* Damaged Car (Reveal Layer) */}
@@ -34,7 +34,7 @@ export default function TruthScanner() {
            <img 
             src={damagedCarImg} 
             alt="Damaged Car" 
-            className="absolute inset-0 w-full h-full object-contain p-8"
+            className="absolute inset-0 w-full h-full object-contain p-4"
             style={{ width: '100%' }}
           />
         </div>
