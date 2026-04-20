@@ -104,10 +104,9 @@ export default function LicensePlateLookup() {
           <div className="flex flex-col">
             <h2
               className="mb-6 leading-tight"
-              style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: '#111827' }}
+              style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#111827' }}
             >
-              No VIN? Unmask the <br />
-              <span className="wavy-underline-red">Truth</span> with a Plate.
+              Lookup owners and any license plate in the USA with our <span className="wavy-underline-red">license plate check</span>
             </h2>
 
             <p

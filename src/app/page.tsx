@@ -14,6 +14,7 @@ import Footer from '../components/Footer';
 import FinalCTA from '../components/FinalCTA';
 import VideoDemo from '../components/VideoDemo';
 import UnlimitedPricingCard from '../components/UnlimitedPricingCard';
+import WindowStickerLookup from '../components/WindowStickerLookup';
 import LicensePlateLookup from '../components/LicensePlateLookup';
 import { CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -44,10 +45,6 @@ export default function App() {
             </p>
 
             <CompetitorComparison />
-
-            <div className="mt-16 text-left">
-              <UnlimitedPricingCard />
-            </div>
           </div>
         </section>
 
@@ -125,18 +122,22 @@ export default function App() {
               <div className="grid lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8">
                   <div style={{ color: '#0EB075', fontSize: '0.875rem', fontWeight: '700', letterSpacing: '0.2em', marginBottom: '12px', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
-                    Instant Connection
+                    Comprehensive Vehicle History
                   </div>
                   <h4 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '28px', color: '#111827', marginBottom: '12px' }}>
-                    Connect with used car buyers <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
+                    Uncover the full vehicle history report <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
                   </h4>
                   <p className="max-w-3xl" style={{ fontFamily: '"Space Mono", monospace', fontSize: '16px', color: '#4B5563' }}>
-                    Don&apos;t wait for &quot;pending updates&quot;. Our database is live. Grab your report and let the buyer know the truth before anyone else does.
+                    Our real-time database scans 45+ countries and millions of records to protect you from lemons. Get the truth about accidents, titles, and mileage before you buy.
                   </p>
                 </div>
                 <div className="lg:col-span-4">
-                  <button className="primary-button font-body px-8 py-5 w-full transition-all active:scale-95" style={{ fontSize: '16px', fontWeight: '700', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}>
-                    GET STARTED FOR $24.99
+                  <button 
+                    onClick={() => document.getElementById('vin-search-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="primary-button font-body px-8 py-5 w-full transition-all active:scale-95 hover:translate-y-[-2px]" 
+                    style={{ fontSize: '16px', fontWeight: '700', fontFamily: '"Space Mono", monospace', textTransform: 'uppercase' }}
+                  >
+                    GET STARTED NOW
                   </button>
                 </div>
               </div>
@@ -151,8 +152,15 @@ export default function App() {
         <Features />
         <HowItWorks />
 
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+          <UnlimitedPricingCard />
+        </div>
+
         {/* Stats / Fact Card Section */}
         <Stats />
+
+        {/* Window Sticker Section */}
+        <WindowStickerLookup />
 
         {/* License Plate Lookup Section */}
         <LicensePlateLookup />
