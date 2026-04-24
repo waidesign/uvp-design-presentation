@@ -26,7 +26,7 @@ export default function CompetitorComparison() {
           <div className="bg-[#0EB075] text-white px-3 py-1 rounded font-bold">UVP</div>
         </div>
         <h4 className="text-xl mb-1" style={{ fontFamily: '"Gochi Hand", cursive' }}>UsedVehiclePro</h4>
-        <div className="text-3xl font-bold mb-4 text-[#0EB075]" style={{ fontFamily: '"Kalam", cursive' }}>$19.99</div>
+        <div className="text-3xl font-bold mb-4 text-[#0EB075]" style={{ fontFamily: '"Kalam", cursive' }}>$24.99</div>
         <p className="font-body font-bold" style={{ fontFamily: '"Space Mono", monospace' }}>100% Transparency. 330M Records. Instant Results.</p>
       </div>
 

@@ -139,7 +139,7 @@ export default function LicensePlateLookup() {
               style={{ fontFamily: '"Space Mono", monospace', fontWeight: 700, textTransform: 'uppercase' }}
             >
               <Search size={18} className="group-hover:scale-110 transition-transform" />
-              Start Plate Lookup — $19.99
+              Start Plate Lookup — $24.99
             </button>
 
             <div className="mt-6 flex items-center gap-2 text-xs opacity-50 font-body uppercase tracking-widest">

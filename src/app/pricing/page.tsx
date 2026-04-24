@@ -11,7 +11,7 @@ import Footer from '../../components/Footer';
 const PRICING_PLANS = [
   {
     title: 'Single Report',
-    price: '$14.99',
+    price: '$24.99',
     badge: null,
     features: [
       '1 Full Vehicle History Report',
@@ -41,7 +41,7 @@ const PRICING_PLANS = [
   },
   {
     title: 'Window Sticker',
-    price: '$9.99',
+    price: '$14.99',
     badge: 'FACTORY DATA',
     features: [
       '1 Original Window Sticker',

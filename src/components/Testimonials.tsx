@@ -16,7 +16,7 @@ export default function Testimonials() {
     },
     {
       author: 'David C.',
-      text: "Best $20 I've spent. Used the report to knock $1,500 off the price. It's practically free money!",
+      text: "Best $25 I've spent. Used the report to knock $1,500 off the price. It's practically free money!",
       rotation: '-1deg'
     },
   ];

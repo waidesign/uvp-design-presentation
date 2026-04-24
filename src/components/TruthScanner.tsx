@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
-const cleanCarImg = '/assets/clean_car_sketch.png';
-const damagedCarImg = '/assets/damaged_car_sketch.png';
+const imgLeft = '/assets/image1.png';  // What they show you (Clean)
+const imgRight = '/assets/image2.png'; // The real truth (Crashed)
 
 export default function TruthScanner() {
   const [sliderPos, setSliderPos] = useState(50);
@@ -18,26 +18,34 @@ export default function TruthScanner() {
         THE REAL TRUTH 🚩
       </div>
 
-      {/* Clean Car (Base Layer) */}
-      <img 
-        src={cleanCarImg} 
-        alt="Clean Car" 
-        className="absolute inset-0 w-full h-full object-contain p-4"
+      {/* Left side car (Image 1) */}
+      <div 
+        className="absolute inset-0 z-10"
+        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+      >
+        <img 
+          src={imgLeft} 
+          alt="What They Show You" 
+          className="w-full h-full object-contain p-4"
+        />
+      </div>
+
+      {/* Vertical Divider Line */}
+      <div 
+        className="absolute top-0 bottom-0 z-20 w-0.5 bg-[#004B22]"
+        style={{ left: `${sliderPos}%` }}
       />
 
-      {/* Damaged Car (Reveal Layer) */}
+      {/* Right side car (Image 2) */}
       <div 
-        className="absolute inset-0 overflow-hidden pointer-events-none z-10"
-        style={{ width: `${sliderPos}%`, borderRight: '2px solid #004B22' }}
+        className="absolute inset-0 z-0"
+        style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
       >
-        <div className="absolute inset-0" style={{ width: 'calc(100% * (100 / ' + sliderPos + '))' }}>
-           <img 
-            src={damagedCarImg} 
-            alt="Damaged Car" 
-            className="absolute inset-0 w-full h-full object-contain p-4"
-            style={{ width: '100%' }}
-          />
-        </div>
+        <img 
+          src={imgRight} 
+          alt="The Real Truth" 
+          className="w-full h-full object-contain p-4"
+        />
       </div>
 
 

@@ -1,14 +1,10 @@
 "use client";
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Search, ShieldCheck, AlertCircle, FileText, ChevronRight, ArrowDown, Car, Flag } from 'lucide-react';
-
-const damagedCarImg = '/assets/damaged_car_sketch.png';
-const heroFrame = '/assets/hero_frame.svg';
+import { Search, ArrowDown } from 'lucide-react';
 
 export default function Hero() {
   const [vin, setVin] = useState('');
-  const [isPeeled, setIsPeeled] = useState(false);
 
   return (
     <section className="relative pt-16 pb-20 md:pt-24 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
@@ -49,7 +45,7 @@ export default function Hero() {
               style={{
                 backgroundColor: '#F9FEFB',
                 border: '2px solid #004B22',
-                borderRadius: '12px',
+                borderRadius: '2px',
                 padding: '24px',
                 maxWidth: '694px',
                 boxShadow: '2px 2px 0 0 #004B22'
@@ -89,9 +85,9 @@ export default function Hero() {
                 <button
                   id="check-vin-hero"
                   className="primary-button font-body text-sm px-8 py-3 transition-all active:scale-95 whitespace-nowrap"
-                  style={{ 
-                    fontSize: '16px', 
-                    fontWeight: '700', 
+                  style={{
+                    fontSize: '16px',
+                    fontWeight: '700',
                     fontFamily: '"Space Mono", monospace'
                   }}
                 >
@@ -105,12 +101,12 @@ export default function Hero() {
               <a
                 href="#"
                 className="font-body"
-                style={{ 
-                  color: '#191C1E', 
-                  fontFamily: '"Space Mono", monospace', 
-                  fontSize: '1.125rem', 
-                  fontStyle: 'normal', 
-                  fontWeight: 400, 
+                style={{
+                  color: '#191C1E',
+                  fontFamily: '"Space Mono", monospace',
+                  fontSize: '1.125rem',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
                   lineHeight: '1.75rem',
                   textDecorationLine: 'underline',
                   textDecorationStyle: 'solid',
@@ -126,12 +122,12 @@ export default function Hero() {
               <a
                 href="#"
                 className="font-body"
-                style={{ 
-                  color: '#191C1E', 
-                  fontFamily: '"Space Mono", monospace', 
-                  fontSize: '1.125rem', 
-                  fontStyle: 'normal', 
-                  fontWeight: 400, 
+                style={{
+                  color: '#191C1E',
+                  fontFamily: '"Space Mono", monospace',
+                  fontSize: '1.125rem',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
                   lineHeight: '1.75rem',
                   textDecorationLine: 'underline',
                   textDecorationStyle: 'solid',
@@ -159,92 +155,37 @@ export default function Hero() {
                 <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">RVs</span>
                 <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">ATVs</span>
                 <span className="relative after:content-['•'] after:absolute after:-right-2.5 after:text-slate-300 last:after:content-none whitespace-nowrap">Trailers</span>
-                <span className="whitespace-nowrap">& Heavy Duty</span>
+                <span className="whitespace-nowrap">&amp; Heavy Duty</span>
               </div>
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center justify-center relative">
+          {/* Right column – Hero Video Graphic */}
+          <div className="flex items-center justify-center relative mt-12 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="w-full max-w-[480px] relative cursor-pointer group"
-              onClick={() => setIsPeeled(!isPeeled)}
-              style={{ aspectRatio: '1/1' }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="relative w-full max-w-[640px]"
             >
-              {/* The Sketchy Frame SVG */}
-              <img 
-                src={heroFrame} 
-                className="absolute inset-0 w-full h-full z-0 block pointer-events-none" 
-                alt="Frame"
+              <video
+                src="/hero-vid.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto"
+                style={{ display: 'block' }}
               />
 
-              {/* Inner Content Area (where the magic happens) */}
-              <div className="absolute inset-[6%] overflow-hidden z-10">
-                {/* Hidden (Revealed) Side - Damaged Car */}
-                <div className="absolute inset-0 flex items-center justify-center bg-[#e8e8e8]">
-                  <img 
-                    src={damagedCarImg} 
-                    alt="Damaged Car" 
-                    className="w-full h-full object-contain grayscale brightness-90 relative z-0 p-8"
-                  />
-                </div>
-
-                {/* Top Layer - "Good" Car / Placeholder */}
-                <motion.div
-                  className="absolute inset-0 z-20 bg-white flex items-center justify-center p-8 origin-bottom-left"
-                  animate={{ 
-                    rotate: isPeeled ? -95 : 0,
-                    x: isPeeled ? -20 : 0,
-                    y: isPeeled ? 20 : 0,
-                    opacity: isPeeled ? 0 : 1
-                  }}
-                  transition={{ type: 'spring', stiffness: 60, damping: 15 }}
-                >
-                  <div className="text-center">
-                    <div className="mb-3 flex justify-center text-[#0EB075]">
-                      <Car size={72} />
-                    </div>
-                    <div className="font-body" style={{ fontSize: '14px', color: '#004B22', fontWeight: 700, fontFamily: '"Space Mono", monospace' }}>Vehicle History Report</div>
-                    <div className="font-body mt-2" style={{ fontSize: '11px', color: '#666', fontFamily: '"Space Mono", monospace' }}>ID: 1G1RC6E40BU123456</div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* The "Check this!🚩" Badge - Top Left */}
+              {/* Decorative elements to match the sketchy vibe */}
               <div 
-                className="absolute -top-2 -left-6 z-30 pointer-events-none"
-                style={{ transform: 'rotate(-6deg)' }}
-              >
-                <div 
-                  className="bg-white px-6 py-2 border border-[#EA4335] rounded-[4px] flex items-center gap-2"
-                  style={{ 
-                    boxShadow: '2px 2px 0px 0px #EA4335',
-                    color: '#EA4335',
-                    fontFamily: '"Gochi Hand", cursive',
-                    fontSize: '16px',
-                    fontWeight: 400
-                  }}
-                >
-                  Check this! <Flag size={18} fill="#EA4335" />
-                </div>
-              </div>
+                className="absolute -top-4 -right-4 w-24 h-24 bg-[#0EB075]/10 rounded-full blur-2xl -z-10"
+              />
+              <div 
+                className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#EA4335]/5 rounded-full blur-3xl -z-10"
+              />
             </motion.div>
-
-            {/* "Click to reveal" label */}
-            {!isPeeled && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, y: [0, -5, 0] }}
-                className="absolute -bottom-10 right-0 font-body text-xs flex items-center gap-2"
-                style={{ color: '#0EB075', fontFamily: '"Kalam", cursive' }}
-                transition={{ scale: { repeat: Infinity, duration: 2 }, opacity: { duration: 0.5 } }}
-              >
-                <span style={{ fontSize: '16px' }}>Click to reveal the truth!</span>
-              </motion.div>
-            )}
-
           </div>
         </div>
       </div>
