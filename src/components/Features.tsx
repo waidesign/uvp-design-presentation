@@ -1,10 +1,11 @@
 "use client";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle, AlertTriangle, Zap, Coins, ChevronDown } from 'lucide-react';
+import { CheckCircle, AlertTriangle, Zap, Coins, ChevronDown, X } from 'lucide-react';
 
 export default function Features() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const valueProps = [
     {
@@ -37,7 +38,7 @@ export default function Features() {
       text: 'Track when and where the vehicle was sold. View past auction photos and mileage readings from when the car last changed hands.',
       features: ['Past sales prices', 'Auction house records', 'Sales date verification', 'Previous mileage logs'],
       videoImg: '/assets/value_videoframe.png',
-      videoFile: 'Auction_Sales_Audit.mp4',
+      videoFile: '/auction-vid.mp4',
     },
     {
       tag: 'Title Status',
@@ -45,7 +46,7 @@ export default function Features() {
       text: "Monitor for 'branded' titles including Salvage, Rebuilt, Lemon, and Flood damage that can drastically reduce car value.",
       features: ['Salvage/Rebuilt status', 'Flood & Fire damage tags', 'Lemon law history', 'Junk & Scrap records'],
       videoImg: '/assets/title_video.png',
-      videoFile: 'Title_Brand_Audit.mp4',
+      videoFile: '/title-vid.mp4',
     },
     {
       tag: 'Vehicle Usage',
@@ -53,7 +54,7 @@ export default function Features() {
       text: 'Identify if a car was previously used as a Taxi, Police vehicle, Rental, or Lease to understand its true wear and tear.',
       features: ['Taxi & Ride-share check', 'Police & Govt usage', 'Rental fleet history', 'Commercial lease tags'],
       videoImg: '/assets/clean_car_sketch.png',
-      videoFile: 'Usage_Profile_Scanner.mp4',
+      videoFile: '/usage-vid.mp4',
     },
     {
       tag: 'Ownership History',
@@ -61,7 +62,7 @@ export default function Features() {
       text: 'See the number of previous owners and how long they kept the vehicle. High turnover can be a red flag.',
       features: ['Number of owners', 'Duration of ownership', 'Registration locations', 'Private vs Commercial'],
       videoImg: '/assets/blog_chart_viz.png',
-      videoFile: 'Ownership_Timeline_V3.mp4',
+      videoFile: '/ownership-vid.mp4',
     },
     {
       tag: 'Mileage & Odometer',
@@ -69,7 +70,7 @@ export default function Features() {
       text: 'Expose odometer rollbacks and discrepancies. We verify mileage history across multiple sources to ensure accuracy.',
       features: ['Odometer rollback alerts', 'Mileage timeline spikes', 'Annual mileage averages', 'Inspection record sync'],
       videoImg: '/assets/odometer_video.png',
-      videoFile: 'Mileage_Verification_Engine.mp4',
+      videoFile: '/mileage-vid.mp4',
     },
     {
       tag: 'Accident History',
@@ -77,7 +78,7 @@ export default function Features() {
       text: 'Check for reported accidents, insurance claims, and structural damage that sellers might not mention.',
       features: ['Police report matching', 'Insurance claim history', 'Minor vs Major damage', 'Collision dating'],
       videoImg: '/assets/damage_video.png',
-      videoFile: 'Accident_Audit_Live.mp4',
+      videoFile: '/accident-vid.mp4',
     },
     {
       tag: 'Damage Assessment',
@@ -85,7 +86,7 @@ export default function Features() {
       text: 'Detailed reports on specific damaged areas, severity of impact, and whether airbags were deployed.',
       features: ['Structural integrity check', 'Airbag deployment tags', 'Component replacement logs', 'Frame damage alerts'],
       videoImg: '/assets/damaged_car_sketch.png',
-      videoFile: 'Damage_Forensics_Viz.mp4',
+      videoFile: '/damage-vid.mp4',
     },
     {
       tag: 'Safety Recalls',
@@ -93,7 +94,7 @@ export default function Features() {
       text: 'Stay safe by checking if the vehicle has any outstanding safety recalls that need immediate attention.',
       features: ['Manufacturer recall alerts', 'Safety component checks', 'Open vs Closed recall status', 'NHTSA data integration'],
       videoImg: '/assets/video_scanner_bg.png',
-      videoFile: 'Safety_Recall_Scanner.mp4',
+      videoFile: '/recall-vid.mp4',
     },
   ];
 
@@ -209,13 +210,25 @@ export default function Features() {
                     {/* Image/Video column */}
                     <div className={isImgLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}>
                       <div 
-                        className="relative sketch-border sketch-shadow overflow-hidden bg-slate-900 aspect-video group cursor-pointer"
+                        onClick={() => setSelectedVideo(row.videoFile)}
+                        className="relative overflow-hidden group cursor-pointer"
                       >
-                        <img 
-                          src={row.videoImg} 
-                          alt={row.tag} 
-                          className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" 
-                        />
+                        {row.videoFile.startsWith('/') ? (
+                          <video 
+                            src={row.videoFile}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-auto block transition-transform duration-700"
+                          />
+                        ) : (
+                          <img 
+                            src={row.videoImg} 
+                            alt={row.tag} 
+                            className="w-full h-auto block transition-transform duration-700" 
+                          />
+                        )}
                         <div className="absolute inset-0 flex items-center justify-center">
                           <motion.div 
                             whileHover={{ scale: 1.1 }}
@@ -224,12 +237,6 @@ export default function Features() {
                           >
                             <div className="w-0 h-0 border-l-[12px] border-l-white border-y-[8px] border-y-transparent ml-1.5"></div>
                           </motion.div>
-                        </div>
-                        <div className="absolute bottom-4 left-4">
-                          <div className="bg-black/60 backdrop-blur-md px-3 py-1.5 sketch-border-sm text-white text-[11px] font-body flex items-center gap-2" style={{ fontFamily: '"Space Mono", monospace' }}>
-                             <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                             {row.videoFile}
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -256,6 +263,42 @@ export default function Features() {
           )}
         </div>
       </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-sm"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-video bg-black sketch-border sketch-shadow"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 text-white hover:text-[#0EB075] transition-colors flex items-center gap-2 font-mono"
+              >
+                <X size={24} />
+                <span>CLOSE</span>
+              </button>
+              
+              <video
+                src={selectedVideo}
+                controls
+                autoPlay
+                className="w-full h-full"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
