@@ -146,7 +146,7 @@ export default function App() {
         </section>
 
         {/* Video Demo Section */}
-        <VideoDemo />
+        {/* <VideoDemo /> */}
 
         {/* Features & How It Works */}
         <Features />

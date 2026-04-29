@@ -39,47 +39,29 @@ export default function LicensePlateLookup() {
               whileInView={{ opacity: 1, x: 0 }}
               className="relative z-10"
             >
-              {/* Stylized License Plate */}
+              {/* Large Video Framer with Padding */}
               <div
-                className="max-w-md mx-auto aspect-[1.8/1] bg-white sketch-border sketch-shadow p-6 flex flex-col justify-between items-center relative overflow-hidden group"
-                style={{ backgroundColor: '#F9FAFB' }}
+                className="max-w-2xl mx-auto aspect-video relative group p-2"
               >
-                {/* Plate Decoration */}
-                <div className="absolute top-4 left-6 right-6 flex justify-between items-center opacity-40">
-                  <span className="text-[10px] font-body tracking-[0.2em] uppercase">United States</span>
-                  <div className="w-8 h-8 rounded-full border border-current opacity-20"></div>
-                </div>
-
-                {/* Main Plate Number */}
-                <div className="flex flex-col items-center justify-center flex-grow mt-4">
-                  <div
-                    className="text-[64px] font-bold tracking-widest text-[#111827] leading-none mb-2"
-                    style={{ fontFamily: '"Kalam", cursive' }}
+                <div className="relative w-full h-full">
+                  {/* Background Video */}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-2xl"
                   >
-                    TRUTH
-                  </div>
-                  <div
-                    className="text-xs font-body tracking-[0.4em] uppercase text-[#0EB075]"
-                  >
-                    Vehicle Verified
-                  </div>
-                </div>
+                    <source src="/plate-vid.mp4" type="video/mp4" />
+                  </video>
 
-                {/* Bottom Plate Info */}
-                <div className="w-full flex justify-between items-end mt-4">
-                  <div className="flex gap-2">
-                    <div className="w-6 h-6 bg-blue-100 border border-blue-200 rounded-sm"></div>
-                    <div className="w-6 h-6 bg-red-100 border border-red-200 rounded-sm"></div>
-                  </div>
-                  <span className="text-[10px] font-body opacity-50 uppercase">No VIN? No Problem.</span>
+                  {/* Magic Scanner Effect */}
+                  <motion.div
+                    animate={{ top: ['0%', '100%', '0%'] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                    className="absolute left-0 right-0 h-1 bg-[#0EB075]/40 shadow-[0_0_15px_rgba(14,176,117,0.5)] z-10 pointer-events-none"
+                  />
                 </div>
-
-                {/* Magic Scanner Effect */}
-                <motion.div
-                  animate={{ top: ['0%', '100%', '0%'] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                  className="absolute left-0 right-0 h-0.5 bg-[#0EB075]/20 z-0 pointer-events-none"
-                />
               </div>
 
               {/* Decorative Labels */}
@@ -91,13 +73,12 @@ export default function LicensePlateLookup() {
 
               <div className="absolute -bottom-8 -left-12 hidden sm:block">
                 <div className="bg-[#E5F7EE] border-2 border-[#004B22] px-4 py-2 -rotate-3 sketch-shadow">
-                  <span className="font-hand text-[#004B22] text-lg">45+ State Databases</span>
+                  <span className="font-hand text-[#004B22] text-lg">Support All 50 States</span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Background Texture/Blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#F5FDF9] rounded-full -z-10 blur-3xl opacity-50"></div>
+
           </div>
 
           {/* Right Side: Content */}
