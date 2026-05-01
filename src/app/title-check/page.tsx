@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
+import Link from 'next/link';
 
 // ─── FAQ ─────────────────────────────────────────────────────────────────────
 const faqs = [
@@ -78,7 +79,7 @@ export default function TitleCheckPage() {
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 mb-8" style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41' }}>
-              <a href="/" className="hover:text-[#0EB075] transition-colors">Home</a>
+              <Link href="/" className="hover:text-[#0EB075] transition-colors">Home</Link>
               <span>/</span>
               <span style={{ color: '#0EB075' }}>Title Check</span>
             </div>

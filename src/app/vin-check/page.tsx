@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
+import Link from 'next/link';
 
 // ─── FAQ ─────────────────────────────────────────────────────────────────────
 const faqs = [
@@ -125,7 +126,7 @@ export default function VinCheckPage() {
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 mb-8" style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41' }}>
-              <a href="/" className="hover:text-[#0EB075] transition-colors">Home</a>
+              <Link href="/" className="hover:text-[#0EB075] transition-colors">Home</Link>
               <span>/</span>
               <span style={{ color: '#0EB075' }}>VIN Check</span>
             </div>
@@ -195,7 +196,7 @@ export default function VinCheckPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row justify-between gap-3 mt-4" style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: '#6B7280' }}>
-                <a href="/license-plate-lookup" className="hover:text-[#0EB075] underline transition-colors">No VIN? Use license plate →</a>
+                <Link href="/license-plate-lookup" className="hover:text-[#0EB075] underline transition-colors">No VIN? Use license plate →</Link>
                 <a href="#" className="hover:text-[#0EB075] underline transition-colors">View sample report →</a>
               </div>
             </motion.div>

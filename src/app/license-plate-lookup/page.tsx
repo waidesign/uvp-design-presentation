@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
+import Link from 'next/link';
 
 // ─── FAQ Data ────────────────────────────────────────────────────────────────
 const faqs = [
@@ -112,7 +113,7 @@ export default function LicensePlateLookupPage() {
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 mb-8" style={{ fontFamily: '"Space Mono", monospace', fontSize: '13px', color: '#3D4A41' }}>
-              <a href="/" className="hover:text-[#0EB075] transition-colors">Home</a>
+              <Link href="/" className="hover:text-[#0EB075] transition-colors">Home</Link>
               <span>/</span>
               <span style={{ color: '#0EB075' }}>License Plate Lookup</span>
             </div>
@@ -234,7 +235,7 @@ export default function LicensePlateLookupPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row justify-between gap-3 mt-4 text-sm" style={{ fontFamily: '"Space Mono", monospace', color: '#6B7280' }}>
-                <a href="/window-sticker" className="hover:text-[#0EB075] underline transition-colors">No plate? Check by VIN →</a>
+                <Link href="/window-sticker" className="hover:text-[#0EB075] underline transition-colors">No plate? Check by VIN →</Link>
                 <a href="#" className="hover:text-[#0EB075] underline transition-colors">View a sample report →</a>
               </div>
             </motion.div>
