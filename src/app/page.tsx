@@ -39,7 +39,7 @@ export default function App() {
             </h2>
             <p
               className="font-body mb-16 mx-auto opacity-70"
-              style={{ fontFamily: '"Space Mono", monospace', maxWidth: '500px' }}
+              style={{ fontFamily: "'Space Mono', monospace", maxWidth: '500px' }}
             >
               We provide more data checkpoints than the big names, for less than the price of a takeout lunch.
             </p>
@@ -60,7 +60,7 @@ export default function App() {
               </h2>
               <p
                 className="font-body mx-auto leading-relaxed"
-                style={{ fontFamily: '"Space Mono", monospace', maxWidth: '520px' }}
+                style={{ fontFamily: "'Space Mono', monospace", maxWidth: '520px' }}
               >
                 Ever wonder what Carfax and AutoCheck &quot;forget&quot; to mention?<br />
                 Grab the slider and see the skeletons sellers are hiding.
@@ -90,7 +90,7 @@ export default function App() {
                 </h3>
                 <p
                   className="font-body mb-8 leading-relaxed"
-                  style={{ fontFamily: '"Space Mono", monospace' }}
+                  style={{ fontFamily: "'Space Mono', monospace" }}
                 >
                   While our competitors are busy charging you for &quot;brand name&quot; reports that miss crucial data, we&apos;re digging deep into 45+ countries and 330M records to find exactly what happened to that car.
                 </p>
@@ -100,7 +100,7 @@ export default function App() {
                     <CheckCircle size={20} color="#0EB075" strokeWidth={2} className="shrink-0 mt-0.5" />
                     <div>
                       <div className="font-body mb-1" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Detailed Accident Assessments</div>
-                      <div className="font-body" style={{ color: '#3D4A41', fontFamily: '"Space Mono", monospace', fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Not just &quot;Accident reported&quot;, but &quot;Left-front structural damage&quot;.</div>
+                      <div className="font-body" style={{ color: '#3D4A41', fontFamily: "'Space Mono', monospace", fontSize: '1.125rem', fontStyle: 'normal', fontWeight: 400, lineHeight: '1.75rem' }}>Not just &quot;Accident reported&quot;, but &quot;Left-front structural damage&quot;.</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -127,7 +127,7 @@ export default function App() {
                   <h4 style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '28px', color: '#111827', marginBottom: '12px' }}>
                     Uncover the full vehicle history report <span className="wavy-underline" style={{ color: '#111827', textDecorationColor: '#0EB075' }}>instantly.</span>
                   </h4>
-                  <p className="max-w-3xl" style={{ fontFamily: '"Space Mono", monospace', fontSize: '16px', color: '#4B5563' }}>
+                  <p className="max-w-3xl" style={{ fontFamily: "'Space Mono', monospace", fontSize: '16px', color: '#4B5563' }}>
                     Our real-time database scans 45+ countries and millions of records to protect you from lemons. Get the truth about accidents, titles, and mileage before you buy.
                   </p>
                 </div>

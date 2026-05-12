@@ -18,10 +18,10 @@ export default function Hero() {
               className="leading-tight mb-6"
               style={{ fontFamily: '"Gochi Hand", cursive', fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#111827', fontWeight: 600 }}
             >
-              {"Don't buy a"}{' '}
-              <span className="wavy-underline-red" style={{ color: '#EA4335', textDecorationColor: '#EA4335' }}>Lemon!</span><br />
-              Get the{' '}
-              <span className="wavy-underline" style={{ color: '#0EB075', textDecorationColor: '#00A38D' }}>Real Story!</span>
+              {"Don't Buy"}{' '}
+              <span className="wavy-underline-red" style={{ color: '#EA4335', textDecorationColor: '#EA4335' }}>Trouble.</span><br />
+              {"Know the Vehicle"}{' '}
+              <span className="wavy-underline" style={{ color: '#0EB075', textDecorationColor: '#00A38D' }}>Before You Pay.</span>
             </motion.h1>
 
             <motion.p
@@ -31,8 +31,7 @@ export default function Hero() {
               className="font-body mb-10 leading-relaxed"
               style={{ fontSize: '20px', color: '#4B5563', fontFamily: '"Space Mono", monospace', maxWidth: '610px' }}
             >
-              {"We dug through the dusty archives so you don't have to."}
-              {"Accidents, title drama, mileage tricks—we find 'em all in seconds."}
+              {"Accidents, title issues, mileage rollbacks, theft records, and ownership history — checked instantly from one VIN."}
             </motion.p>
 
             {/* VIN Search Box */}

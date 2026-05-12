@@ -58,6 +58,8 @@ export default function WindowStickerPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [activeZone, setActiveZone] = useState(0);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F5FDF9' }}>
@@ -211,65 +213,88 @@ export default function WindowStickerPage() {
                 </motion.div>
               </div>
 
-              {/* Right Graphics Column */}
-              <div className="hidden lg:block relative h-[500px]">
+              <div className="relative">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3, duration: 0.7 }}
-                  className="w-full h-full"
+                  className="w-full"
                 >
-                  {/* Placeholder for Graphics Section */}
-                  <div 
-                    className="w-full h-full relative"
+                  <div
                     style={{
-                      border: '3px dashed #004B22',
-                      borderRadius: '8px',
-                      backgroundColor: 'rgba(14, 176, 117, 0.03)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
-                      transform: 'rotate(1deg)',
-                      boxShadow: '10px 10px 0 0 rgba(0, 75, 34, 0.05)',
+                      border: '2px solid #004B22',
+                      borderRadius: '4px',
+                      boxShadow: '8px 8px 0 0 #004B22',
+                      overflow: 'hidden',
+                      backgroundColor: '#fff',
                     }}
                   >
-                    <div style={{
-                      position: 'absolute',
-                      top: '20px',
-                      right: '20px',
-                      fontFamily: '"Gochi Hand", cursive',
-                      color: '#0EB075',
-                      fontSize: '16px',
-                      transform: 'rotate(5deg)'
-                    }}>
-                      [ Graphics Section Placeholder ]
+                    {/* Video area */}
+                    <div
+                      style={{
+                        position: 'relative',
+                        backgroundColor: '#111827',
+                        aspectRatio: '16/9',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        overflow: 'hidden',
+                      }}
+                      onClick={() => setSelectedVideo('/sticker-vid.mp4')}
+                    >
+                      <video
+                        src="/sticker-vid.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover opacity-60"
+                      />
+
+                      {/* Play button overlay */}
+                      <div
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexDirection: 'column',
+                          gap: '16px',
+                          zIndex: 2,
+                        }}
+                      >
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          style={{
+                            width: '72px',
+                            height: '72px',
+                            borderRadius: '50%',
+                            backgroundColor: '#0EB075',
+                            border: '3px solid #fff',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            boxShadow: '0 4px 24px rgba(14,176,117,0.4)',
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: 0,
+                              height: 0,
+                              borderTop: '12px solid transparent',
+                              borderBottom: '12px solid transparent',
+                              borderLeft: '20px solid #fff',
+                              marginLeft: '4px',
+                            }}
+                          />
+                        </motion.div>
+                      </div>
+
                     </div>
-                    
-                    <FileText size={80} className="text-[#0EB075]/20 mb-4" />
-                    <div style={{ fontFamily: '"Space Mono", monospace', color: '#004B22', fontSize: '14px', opacity: 0.5 }}>
-                      Official Monroney Label Visualization
-                    </div>
-                    
-                    {/* Sketchy elements */}
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '40px',
-                      left: '40px',
-                      width: '60%',
-                      height: '2px',
-                      backgroundColor: '#004B22',
-                      opacity: 0.1
-                    }} />
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '50px',
-                      left: '40px',
-                      width: '40%',
-                      height: '2px',
-                      backgroundColor: '#004B22',
-                      opacity: 0.1
-                    }} />
+
                   </div>
                 </motion.div>
               </div>
@@ -688,241 +713,322 @@ export default function WindowStickerPage() {
             {/* Two-column: Video + List */}
             <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-              {/* LEFT — Video Placeholder */}
-              <div style={{ position: 'sticky', top: 'max(88px, calc(50vh - 220px))' }}>
-                <div
-                  style={{
-                    border: '2px solid #004B22',
-                    borderRadius: '4px',
-                    boxShadow: '6px 6px 0 0 #004B22',
-                    overflow: 'hidden',
-                    backgroundColor: '#fff',
-                  }}
-                >
-                  {/* Video area */}
-                  <div
-                    style={{
-                      position: 'relative',
-                      backgroundColor: '#111827',
-                      aspectRatio: '16/9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
-                      gap: '16px',
-                      cursor: 'pointer',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    {/* Faint grid overlay */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        inset: 0,
-                        backgroundImage: 'linear-gradient(rgba(14,176,117,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(14,176,117,0.05) 1px, transparent 1px)',
-                        backgroundSize: '32px 32px',
-                      }}
-                    />
-                    {/* Play button */}
-                    <div
-                      style={{
-                        width: '72px',
-                        height: '72px',
-                        borderRadius: '50%',
-                        backgroundColor: '#0EB075',
-                        border: '3px solid #fff',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        position: 'relative',
-                        zIndex: 1,
-                        boxShadow: '0 4px 24px rgba(14,176,117,0.4)',
-                      }}
-                    >
+              {/* LEFT — Interactive Image Slider (sticky) */}
+              {(() => {
+                const ZONES = [
+                  { zone: '01', color: '#0EB075', img: '/assets/vehicle-description.png', title: 'Vehicle Description', desc: 'Year, make, model, trim, body style, and the 17-digit VIN — tying the document to one specific unit.' },
+                  { zone: '02', color: '#6366F1', img: '/assets/msrp.png', title: "Manufacturer's Suggested Retail Price", desc: 'Factory-set base price plus each option, listed line-by-line. The number all negotiations should start from.' },
+                  { zone: '03', color: '#F59E0B', img: '/assets/standard-equipment.png', title: 'Standard Equipment', desc: "Every feature built into that trim's standard config at no extra charge — factory only, not dealer add-ons." },
+                  { zone: '04', color: '#EC4899', img: '/assets/packages-options.png', title: 'Optional Equipment & Packages', desc: 'Every add-on checked at the time of order — tow packages, premium audio, panoramic roof, and more.' },
+                  { zone: '05', color: '#14B8A6', img: '/assets/fuel-economy.png', title: 'Fuel Economy', desc: 'EPA city/hwy/combined MPG estimates plus annual fuel cost. Official figures before the car left the factory.' },
+                  { zone: '06', color: '#EF4444', img: '/assets/safety-ratings.png', title: 'Safety Ratings', desc: 'NHTSA frontal, side, and rollover crash-test star ratings. Assigned pre-sale and used for insurance quotes.' },
+                  { zone: '07', color: '#8B5CF6', img: '/assets/colors.png', title: 'Exterior & Interior Colors', desc: 'Official factory paint and upholstery codes. A mismatch here is an instant repaint fraud signal.' },
+                  { zone: '08', color: '#0EA5E9', img: '/assets/warranty-info.png', title: 'Warranty Information', desc: 'Bumper-to-bumper, powertrain, corrosion, and roadside coverage terms — all in one place.' },
+                  { zone: '09', color: '#84CC16', img: '/assets/green-house.png', title: 'Greenhouse Gas & Emissions', desc: "EPA Green Score and CO₂ output compared to other vehicles in the same class." },
+                  { zone: '10', color: '#F97316', img: '/assets/shipping-cost.png', title: 'Destination & Delivery Charge', desc: 'Mandatory transport fee from factory to dealer. Non-negotiable — every vehicle has it.' },
+                  { zone: '11', color: '#64748B', img: '/assets/mechanical-feature.png', title: 'Mechanical Features', desc: 'Engine code, displacement, horsepower, torque, transmission type, and drivetrain — as originally built.' },
+                  { zone: '12', color: '#004B22', img: '/assets/total-vehicle-price.png', title: 'Total Vehicle Price', desc: 'Base price + all options + destination. The definitive factory sticker total before any taxes or fees.' },
+                ];
+                const current = ZONES[activeZone];
+                return (
+                  <>
+                    {/* LEFT — Sticky Slider */}
+                    <div style={{ position: 'sticky', top: 'max(88px, calc(50vh - 280px))' }}>
+
+                      {/* Image Container with Controls (Borderless) */}
                       <div
                         style={{
-                          width: 0,
-                          height: 0,
-                          borderTop: '12px solid transparent',
-                          borderBottom: '12px solid transparent',
-                          borderLeft: '20px solid #fff',
-                          marginLeft: '4px',
-                        }}
-                      />
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: '"Gochi Hand", cursive',
-                        fontSize: '18px',
-                        color: '#fff',
-                        position: 'relative',
-                        zIndex: 1,
-                        textAlign: 'center',
-                        lineHeight: '1.4',
-                      }}
-                    >
-                      Window Sticker Explainer Video
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: '"Space Mono", monospace',
-                        fontSize: '11px',
-                        color: 'rgba(255,255,255,0.5)',
-                        position: 'relative',
-                        zIndex: 1,
-                      }}
-                    >
-                      Coming soon — video placeholder
-                    </div>
-                  </div>
-
-                  {/* Caption bar */}
-                  <div
-                    style={{
-                      padding: '16px 20px',
-                      borderTop: '2px solid #004B22',
-                      backgroundColor: '#F5FDF9',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                    }}
-                  >
-                    <FileText size={16} style={{ color: '#0EB075', flexShrink: 0 }} />
-                    <p
-                      style={{
-                        fontFamily: '"Space Mono", monospace',
-                        fontSize: '12px',
-                        color: '#3D4A41',
-                        lineHeight: '1.6',
-                        margin: 0,
-                      }}
-                    >
-                      Watch a full walkthrough of every section on a real window sticker.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Pro tip note */}
-                <div
-                  style={{
-                    marginTop: '16px',
-                    backgroundColor: '#fff',
-                    border: '1.5px dashed #004B22',
-                    borderRadius: '4px',
-                    padding: '14px 18px',
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '10px',
-                  }}
-                >
-                  <Lock size={15} style={{ color: '#0EB075', flexShrink: 0, marginTop: '2px' }} />
-                  <p
-                    style={{
-                      fontFamily: '"Space Mono", monospace',
-                      fontSize: '11px',
-                      color: '#3D4A41',
-                      lineHeight: '1.7',
-                      margin: 0,
-                    }}
-                  >
-                    <strong>Remember:</strong> Dealer-installed options do <em>not</em> appear on the Monroney label. Only factory-ordered equipment is recorded.
-                  </p>
-                </div>
-              </div>
-
-              {/* RIGHT — Numbered section list */}
-              <div className="flex flex-col">
-                {[
-                  { zone: '01', color: '#0EB075', title: 'Vehicle Description', desc: 'Year, make, model, trim, body style, and the 17-digit VIN — tying the document to one specific unit.' },
-                  { zone: '02', color: '#6366F1', title: "Manufacturer's Suggested Retail Price", desc: 'Factory-set base price plus each option, listed line-by-line. The number all negotiations should start from.' },
-                  { zone: '03', color: '#F59E0B', title: 'Standard Equipment', desc: "Every feature built into that trim's standard config at no extra charge — factory only, not dealer add-ons." },
-                  { zone: '04', color: '#EC4899', title: 'Optional Equipment & Packages', desc: 'Every add-on checked at the time of order — tow packages, premium audio, panoramic roof, and more.' },
-                  { zone: '05', color: '#14B8A6', title: 'Fuel Economy', desc: 'EPA city/hwy/combined MPG estimates plus annual fuel cost. Official figures before the car left the factory.' },
-                  { zone: '06', color: '#EF4444', title: 'Safety Ratings', desc: 'NHTSA frontal, side, and rollover crash-test star ratings. Assigned pre-sale and used for insurance quotes.' },
-                  { zone: '07', color: '#8B5CF6', title: 'Exterior & Interior Colors', desc: 'Official factory paint and upholstery codes. A mismatch here is an instant repaint fraud signal.' },
-                  { zone: '08', color: '#0EA5E9', title: 'Warranty Information', desc: 'Bumper-to-bumper, powertrain, corrosion, and roadside coverage terms — all in one place.' },
-                  { zone: '09', color: '#84CC16', title: 'Greenhouse Gas & Emissions', desc: "EPA Green Score and CO₂ output compared to other vehicles in the same class." },
-                  { zone: '10', color: '#F97316', title: 'Destination & Delivery Charge', desc: "Mandatory transport fee from factory to dealer. Non-negotiable — every vehicle has it." },
-                  { zone: '11', color: '#64748B', title: 'Mechanical Features', desc: 'Engine code, displacement, horsepower, torque, transmission type, and drivetrain — as originally built.' },
-                  { zone: '12', color: '#004B22', title: 'Total Vehicle Price', desc: 'Base price + all options + destination. The definitive factory sticker total before any taxes or fees.' },
-                ].map((zone, i, arr) => (
-                  <div
-                    key={zone.zone}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '16px',
-                      padding: '18px 0',
-                      borderBottom: i < arr.length - 1 ? '1px solid #e5e7eb' : 'none',
-                    }}
-                  >
-                    {/* Color bar + zone number */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: '6px',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '36px',
-                          height: '36px',
-                          borderRadius: '4px',
-                          backgroundColor: zone.color,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontFamily: '"Gochi Hand", cursive',
-                          fontSize: '14px',
-                          color: '#fff',
-                          fontWeight: 700,
+                          position: 'relative',
+                          width: '100%',
                         }}
                       >
-                        {zone.zone}
-                      </div>
-                      {i < arr.length - 1 && (
+                        {/* Zone badge */}
                         <div
                           style={{
-                            width: '2px',
-                            flexGrow: 1,
-                            minHeight: '24px',
-                            backgroundColor: '#e5e7eb',
-                            borderRadius: '1px',
+                            position: 'absolute',
+                            top: '12px',
+                            left: '12px',
+                            zIndex: 10,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px',
                           }}
-                        />
-                      )}
-                    </div>
+                        >
+                          <AnimatePresence mode="wait">
+                            <motion.div
+                              key={activeZone + '-badge'}
+                              initial={{ opacity: 0, scale: 0.7 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.7 }}
+                              transition={{ duration: 0.2 }}
+                              style={{
+                                backgroundColor: current.color,
+                                color: '#fff',
+                                fontFamily: '"Gochi Hand", cursive',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                padding: '3px 10px',
+                                borderRadius: '3px',
+                                boxShadow: '2px 2px 0 rgba(0,0,0,0.2)',
+                              }}
+                            >
+                              Section {current.zone}
+                            </motion.div>
+                          </AnimatePresence>
+                        </div>
 
-                    {/* Content */}
-                    <div style={{ paddingTop: '4px', paddingBottom: i < arr.length - 1 ? '18px' : 0 }}>
+                        {/* Image with crossfade */}
+                        <div style={{ position: 'relative', width: '100%', backgroundColor: 'transparent' }}>
+                          <AnimatePresence mode="wait">
+                            <motion.img
+                              key={activeZone}
+                              src={current.img}
+                              alt={current.title}
+                              initial={{ opacity: 0, x: 24 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -24 }}
+                              transition={{ duration: 0.3, ease: 'easeInOut' }}
+                              style={{
+                                width: '100%',
+                                height: 'auto',
+                                display: 'block',
+                                borderRadius: '4px',
+                              }}
+                            />
+                          </AnimatePresence>
+
+                          {/* Prev arrow */}
+                          <button
+                            id="zone-slider-prev"
+                            onClick={() => setActiveZone(z => (z - 1 + ZONES.length) % ZONES.length)}
+                            style={{
+                              position: 'absolute',
+                              left: '12px',
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              zIndex: 10,
+                              width: '38px',
+                              height: '38px',
+                              borderRadius: '50%',
+                              backgroundColor: '#fff',
+                              border: '2px solid #004B22',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              cursor: 'pointer',
+                              boxShadow: '2px 2px 0 #004B22',
+                              transition: 'background-color 0.15s',
+                            }}
+                            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0FBF5')}
+                            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#fff')}
+                          >
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                              <path d="M9 2L4 7L9 12" stroke="#004B22" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </button>
+
+                          {/* Next arrow */}
+                          <button
+                            id="zone-slider-next"
+                            onClick={() => setActiveZone(z => (z + 1) % ZONES.length)}
+                            style={{
+                              position: 'absolute',
+                              right: '12px',
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              zIndex: 10,
+                              width: '38px',
+                              height: '38px',
+                              borderRadius: '50%',
+                              backgroundColor: '#fff',
+                              border: '2px solid #004B22',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              cursor: 'pointer',
+                              boxShadow: '2px 2px 0 #004B22',
+                              transition: 'background-color 0.15s',
+                            }}
+                            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0FBF5')}
+                            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#fff')}
+                          >
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                              <path d="M5 2L10 7L5 12" stroke="#004B22" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Dot navigation */}
                       <div
                         style={{
-                          fontFamily: '"Gochi Hand", cursive',
-                          fontSize: '18px',
-                          color: '#111827',
-                          marginBottom: '6px',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          flexWrap: 'wrap',
+                          gap: '6px',
+                          marginTop: '14px',
+                          padding: '0 4px',
                         }}
                       >
-                        {zone.title}
+                        {ZONES.map((z, i) => (
+                          <button
+                            key={i}
+                            id={`zone-dot-${i}`}
+                            onClick={() => setActiveZone(i)}
+                            title={z.title}
+                            style={{
+                              width: i === activeZone ? '22px' : '8px',
+                              height: '8px',
+                              borderRadius: '4px',
+                              border: 'none',
+                              backgroundColor: i === activeZone ? current.color : '#c8dfc8',
+                              cursor: 'pointer',
+                              padding: 0,
+                              transition: 'width 0.25s ease, background-color 0.25s ease',
+                            }}
+                          />
+                        ))}
                       </div>
-                      <p
+
+                      {/* Counter */}
+                      <div
                         style={{
+                          textAlign: 'center',
+                          marginTop: '8px',
                           fontFamily: '"Space Mono", monospace',
-                          fontSize: '12px',
-                          color: '#3D4A41',
-                          lineHeight: '1.8',
-                          margin: 0,
+                          fontSize: '11px',
+                          color: '#6B7280',
                         }}
                       >
-                        {zone.desc}
-                      </p>
+                        {activeZone + 1} / {ZONES.length} sections
+                      </div>
+
+                      {/* Pro tip note */}
+                      <div
+                        style={{
+                          marginTop: '14px',
+                          backgroundColor: '#fff',
+                          border: '1.5px dashed #004B22',
+                          borderRadius: '4px',
+                          padding: '12px 16px',
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '10px',
+                        }}
+                      >
+                        <Lock size={14} style={{ color: '#0EB075', flexShrink: 0, marginTop: '2px' }} />
+                        <p
+                          style={{
+                            fontFamily: '"Space Mono", monospace',
+                            fontSize: '11px',
+                            color: '#3D4A41',
+                            lineHeight: '1.7',
+                            margin: 0,
+                          }}
+                        >
+                          <strong>Remember:</strong> Dealer-installed options do <em>not</em> appear on the Monroney label. Only factory-ordered equipment is recorded.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+
+                    {/* RIGHT — Clickable zone list */}
+                    <div className="flex flex-col">
+                      {ZONES.map((zone, i, arr) => (
+                        <button
+                          key={zone.zone}
+                          id={`zone-item-${i}`}
+                          onClick={() => setActiveZone(i)}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '16px',
+                            padding: '16px 14px',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            textAlign: 'left',
+                            border: i === activeZone ? `2px solid ${zone.color}` : '2px solid transparent',
+                            borderBottom: (i === activeZone) ? `2px solid ${zone.color}` : (i < arr.length - 1 ? '1px solid #e5e7eb' : '2px solid transparent'),
+                            backgroundColor: i === activeZone ? `${zone.color}0D` : 'transparent',
+                            transition: 'background-color 0.2s, border-color 0.2s',
+                            marginBottom: '2px',
+                          }}
+                        >
+                          {/* Zone badge */}
+                          <div
+                            style={{
+                              display: 'flex',
+                              flexDirection: 'column',
+                              alignItems: 'center',
+                              gap: '6px',
+                              flexShrink: 0,
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: '36px',
+                                height: '36px',
+                                borderRadius: '4px',
+                                backgroundColor: zone.color,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontFamily: '"Gochi Hand", cursive',
+                                fontSize: '14px',
+                                color: '#fff',
+                                fontWeight: 700,
+                                opacity: i === activeZone ? 1 : 0.55,
+                                transition: 'opacity 0.2s',
+                              }}
+                            >
+                              {zone.zone}
+                            </div>
+                            {i < arr.length - 1 && (
+                              <div
+                                style={{
+                                  width: '2px',
+                                  flexGrow: 1,
+                                  minHeight: '16px',
+                                  backgroundColor: i === activeZone ? zone.color : '#e5e7eb',
+                                  borderRadius: '1px',
+                                  opacity: i === activeZone ? 0.4 : 1,
+                                  transition: 'background-color 0.2s',
+                                }}
+                              />
+                            )}
+                          </div>
+
+                          {/* Content */}
+                          <div style={{ paddingTop: '4px', paddingBottom: i < arr.length - 1 ? '14px' : 0 }}>
+                            <div
+                              style={{
+                                fontFamily: '"Gochi Hand", cursive',
+                                fontSize: '18px',
+                                color: i === activeZone ? '#111827' : '#6B7280',
+                                marginBottom: '5px',
+                                transition: 'color 0.2s',
+                              }}
+                            >
+                              {zone.title}
+                            </div>
+                            <p
+                              style={{
+                                fontFamily: '"Space Mono", monospace',
+                                fontSize: '12px',
+                                color: i === activeZone ? '#3D4A41' : '#9CA3AF',
+                                lineHeight: '1.8',
+                                margin: 0,
+                                transition: 'color 0.2s',
+                              }}
+                            >
+                              {zone.desc}
+                            </p>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                );
+              })()}
 
             </div>
           </div>
@@ -1538,69 +1644,22 @@ export default function WindowStickerPage() {
 
                 {/* Right: Mockup Illustration */}
                 <div 
-                  className="bg-[#F5FDF9] p-8 lg:p-16 flex items-center justify-center relative overflow-hidden"
+                  className="bg-[#F5FDF9] p-4 lg:p-8 flex items-center justify-center relative overflow-hidden"
                   style={{ borderLeft: '2px solid #004B22' }}
                 >
-                  {/* Styled Vintage Card Mockup */}
-                  <div 
+                  <motion.img 
+                    src="/assets/classic-window-sticker.png"
+                    alt="Classic Window Sticker"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     style={{ 
-                      backgroundColor: '#fff', 
-                      border: '1.5px solid #D1D5DB', 
-                      borderRadius: '2px',
-                      padding: '24px',
                       width: '100%',
-                      maxWidth: '400px',
-                      boxShadow: '10px 10px 30px rgba(0,0,0,0.05)',
-                      transform: 'rotate(-1deg)',
-                      position: 'relative'
+                      maxWidth: '560px',
+                      height: 'auto',
                     }}
-                  >
-                    <div className="flex justify-between items-center mb-6 border-bottom pb-4" style={{ borderBottom: '1px solid #F3F4F6' }}>
-                      <div style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '20px', color: '#111827' }}>1967 GTO Build Info</div>
-                      <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#9CA3AF' }}>SERIAL: 242177</div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      {[
-                        { k: 'ENGINE', v: '400 cu in (6.6 L) V8' },
-                        { k: 'EXTERIOR', v: 'Tyrol Blue (Code D)' },
-                        { k: 'INTERIOR', v: 'Parchment (Code 224)' },
-                        { k: 'TRANS', v: '4-Speed Manual' },
-                        { k: 'PACKAGES', v: 'Rally II Wheels, Redlines' },
-                      ].map((spec, i) => (
-                        <div key={i} className="flex justify-between items-end gap-4">
-                          <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#9CA3AF', whiteSpace: 'nowrap' }}>{spec.k}</span>
-                          <div style={{ flexGrow: 1, borderBottom: '1px dotted #E5E7EB', marginBottom: '3px' }} />
-                          <span style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '14px', color: '#374151', textAlign: 'right' }}>{spec.v}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div 
-                      className="mt-8 pt-4"
-                      style={{ borderTop: '2px solid #0EB075', textAlign: 'center' }}
-                    >
-                      <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '9px', color: '#0EB075', letterSpacing: '0.2em' }}>AUTHENTIC FACTORY DATA</div>
-                    </div>
-
-                    {/* Decorative Stamp */}
-                    <div 
-                      className="absolute -bottom-4 -right-4 w-20 h-20 flex items-center justify-center"
-                      style={{ 
-                        border: '2px double #ef4444', 
-                        borderRadius: '50%', 
-                        color: '#ef4444', 
-                        transform: 'rotate(-15deg)',
-                        fontFamily: '"Gochi Hand", cursive',
-                        fontSize: '12px',
-                        textAlign: 'center',
-                        backgroundColor: 'rgba(255,255,255,0.8)',
-                        padding: '4px'
-                      }}
-                    >
-                      DECODED BY EXPERTS
-                    </div>
-                  </div>
+                  />
 
                 </div>
               </div>
@@ -1873,81 +1932,10 @@ export default function WindowStickerPage() {
         {/* ═══════════════ INTERACTIVE VISUAL COMPARISON ═══════════════ */}
         <section className="py-24" style={{ backgroundColor: '#fff' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col items-center gap-12">
               
-              {/* Left: Interactive Slider */}
-              <div className="relative">
-                <div 
-                  className="relative aspect-[4/5] overflow-hidden select-none cursor-ew-resize"
-                  style={{ 
-                    border: '3px solid #004B22', 
-                    borderRadius: '8px',
-                    boxShadow: '8px 8px 0 0 #004B22'
-                  }}
-                  onMouseMove={(e) => {
-                    if (isDragging) {
-                      const rect = e.currentTarget.getBoundingClientRect();
-                      const x = ((e.clientX - rect.left) / rect.width) * 100;
-                      setSliderPos(Math.max(0, Math.min(100, x)));
-                    }
-                  }}
-                  onMouseDown={() => setIsDragging(true)}
-                  onMouseUp={() => setIsDragging(false)}
-                  onMouseLeave={() => setIsDragging(false)}
-                >
-                  {/* Premium Image (Base) */}
-                  <img 
-                    src="/Users/a/.gemini/antigravity/brain/a340bc73-f2f1-4db5-ba53-376be91ea2a4/premium_window_sticker_sample_1777628249594.png"
-                    alt="Premium Window Sticker"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  
-                  {/* Generic Image (Overlay) */}
-                  <div 
-                    className="absolute inset-0 overflow-hidden"
-                    style={{ width: `${sliderPos}%`, borderRight: '4px solid #fff' }}
-                  >
-                    <img 
-                      src="/Users/a/.gemini/antigravity/brain/a340bc73-f2f1-4db5-ba53-376be91ea2a4/generic_vin_report_sample_1777628232996.png"
-                      alt="Generic VIN Report"
-                      className="absolute inset-0 w-auto h-full max-w-none object-cover"
-                      style={{ width: 'calc(100% * 100 / ' + sliderPos + ')' }}
-                    />
-                  </div>
-
-                  {/* Slider Handle */}
-                  <div 
-                    className="absolute top-0 bottom-0 flex items-center justify-center"
-                    style={{ left: `calc(${sliderPos}% - 20px)`, pointerEvents: 'none' }}
-                  >
-                    <div 
-                      className="w-10 h-10 bg-white border-2 border-[#004B22] rounded-full flex items-center justify-center shadow-xl"
-                    >
-                      <div className="flex gap-1">
-                        <div className="w-1 h-4 bg-[#0EB075] rounded-full" />
-                        <div className="w-1 h-4 bg-[#0EB075] rounded-full" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Labels */}
-                  <div className="absolute bottom-4 left-4 px-3 py-1 bg-black/60 text-white text-[10px] font-bold rounded uppercase tracking-widest backdrop-blur-sm">
-                    Generic Provider
-                  </div>
-                  <div className="absolute bottom-4 right-4 px-3 py-1 bg-[#0EB075]/80 text-white text-[10px] font-bold rounded uppercase tracking-widest backdrop-blur-sm">
-                    UsedVehiclePro
-                  </div>
-                </div>
-                
-                <div className="mt-6 text-center">
-                  <p style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '18px', color: '#4B5563' }}>
-                    ← Drag slider to compare details →
-                  </p>
-                </div>
-              </div>
-
-              {/* Right: Feature Comparison */}
-              <div>
+              {/* Top: Feature Comparison Text */}
+              <div className="max-w-3xl text-center">
                 <div 
                   className="inline-block px-4 py-1 mb-6"
                   style={{ 
@@ -1969,41 +1957,109 @@ export default function WindowStickerPage() {
                   See the difference in <span style={{ color: '#0EB075' }}>every pixel.</span>
                 </h2>
 
-                <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '16px', color: '#4B5563', marginBottom: '32px', lineHeight: '1.8' }}>
+                <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '16px', color: '#4B5563', marginBottom: '48px', lineHeight: '1.8' }}>
                   Don&apos;t settle for blurry generic reports. We provide high-resolution, manufacturer-original window stickers that include every single option, package, and safety rating your car left the factory with.
                 </p>
 
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-3 gap-8 text-left mb-12">
                   {[
                     { t: 'Authentic Layout', d: 'Identical to the sticker originally on the car window.' },
                     { t: 'Complete Transparency', d: 'Full MSRP breakdown including destination charges.' },
                     { t: 'Technical Accuracy', d: 'Verified engine codes, gear ratios, and safety stars.' },
                   ].map((item, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="mt-1 flex-shrink-0 w-5 h-5 border-2 border-[#0EB075] rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-[#0EB075] rounded-full" />
+                    <div key={i} className="flex flex-col gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 border-2 border-[#0EB075] rounded-full flex items-center justify-center">
+                        <div className="w-2.5 h-2.5 bg-[#0EB075] rounded-full" />
                       </div>
                       <div>
-                        <h4 style={{ fontFamily: '"Space Mono", monospace', fontSize: '15px', color: '#111827', fontWeight: 700 }}>{item.t}</h4>
-                        <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', color: '#6B7280' }}>{item.d}</p>
+                        <h4 style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', color: '#111827', fontWeight: 700, marginBottom: '4px' }}>{item.t}</h4>
+                        <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '12px', color: '#6B7280', lineHeight: '1.5' }}>{item.d}</p>
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
 
-                <div className="mt-12">
+              {/* Bottom: Interactive Slider (Landscape & 1280px Wide) */}
+              <div className="relative w-full max-w-[1280px]">
+                <div 
+                  className="relative aspect-video overflow-hidden select-none cursor-ew-resize"
+                  style={{ 
+                    border: '3px solid #004B22', 
+                    borderRadius: '8px',
+                    boxShadow: '12px 12px 0 0 #004B22'
+                  }}
+                  onMouseMove={(e) => {
+                    if (isDragging) {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      const x = ((e.clientX - rect.left) / rect.width) * 100;
+                      setSliderPos(Math.max(0, Math.min(100, x)));
+                    }
+                  }}
+                  onMouseDown={() => setIsDragging(true)}
+                  onMouseUp={() => setIsDragging(false)}
+                  onMouseLeave={() => setIsDragging(false)}
+                >
+                  {/* Premium Image (Base) */}
+                  <img 
+                    src="/assets/uvp-sticker.png"
+                    alt="Premium Window Sticker"
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                  
+                  {/* Generic Image (Overlay) */}
+                  <div 
+                    className="absolute inset-0 overflow-hidden"
+                    style={{ width: `${sliderPos}%`, borderRight: '3px solid #004B22' }}
+                  >
+                    <img 
+                      src="/assets/generic-provider.png"
+                      alt="Generic VIN Report"
+                      className="absolute inset-0 w-auto h-full max-w-none object-contain"
+                      style={{ width: 'calc(100% * 100 / ' + sliderPos + ')' }}
+                    />
+                  </div>
+
+                  {/* Slider Handle */}
+                  <div 
+                    className="absolute top-0 bottom-0 flex items-center justify-center"
+                    style={{ left: `calc(${sliderPos}% - 20px)`, pointerEvents: 'none' }}
+                  >
+                    <div 
+                      className="w-10 h-10 bg-white border-[3px] border-[#004B22] rounded-full flex items-center justify-center shadow-xl"
+                    >
+                      <div className="flex gap-1">
+                        <div className="w-1.5 h-4 bg-[#004B22] rounded-full" />
+                        <div className="w-1.5 h-4 bg-[#004B22] rounded-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Labels */}
+                  <div className="absolute top-6 left-6 px-4 py-2 bg-black/60 text-white text-[12px] font-bold rounded uppercase tracking-widest backdrop-blur-md">
+                    Generic Provider
+                  </div>
+                  <div className="absolute top-6 right-6 px-4 py-2 bg-[#0EB075]/80 text-white text-[12px] font-bold rounded uppercase tracking-widest backdrop-blur-md">
+                    UsedVehiclePro Premium
+                  </div>
+                </div>
+                
+                <div className="mt-8 text-center flex items-center justify-center gap-12">
+                  <p style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '22px', color: '#4B5563' }}>
+                    ← Drag slider to compare details →
+                  </p>
                   <a
                     href="#vin-search-section"
-                    className="primary-button inline-block"
+                    className="primary-button"
                     style={{
                       fontFamily: '"Space Mono", monospace',
-                      fontSize: '16px',
+                      fontSize: '14px',
                       fontWeight: 700,
-                      padding: '16px 40px',
+                      padding: '12px 32px',
                       textDecoration: 'none',
                     }}
                   >
-                    Generate Your Sticker
+                    Start Search
                   </a>
                 </div>
               </div>
@@ -2161,9 +2217,9 @@ export default function WindowStickerPage() {
 
                 <div className="relative aspect-video mb-8 overflow-hidden border border-slate-100 rounded">
                   <img 
-                    src="/Users/a/.gemini/antigravity/brain/a340bc73-f2f1-4db5-ba53-376be91ea2a4/branded_toyota_sticker_sample_1777629686552.png" 
+                    src="/assets/branded.png" 
                     alt="Branded Window Sticker"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <button className="px-6 py-2 bg-white text-[#111827] font-bold text-sm rounded shadow-lg" style={{ fontFamily: '"Space Mono", monospace' }}>
@@ -2209,9 +2265,9 @@ export default function WindowStickerPage() {
 
                 <div className="relative aspect-video mb-8 overflow-hidden border border-slate-100 rounded">
                   <img 
-                    src="/Users/a/.gemini/antigravity/brain/a340bc73-f2f1-4db5-ba53-376be91ea2a4/custom_luxury_sticker_sample_1777629722821.png" 
+                    src="/assets/customized.png" 
                     alt="Customized Window Sticker"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <button className="px-6 py-2 bg-white text-[#111827] font-bold text-sm rounded shadow-lg" style={{ fontFamily: '"Space Mono", monospace' }}>
@@ -2419,6 +2475,42 @@ export default function WindowStickerPage() {
       </main>
 
       <Footer />
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-sm"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-video bg-black sketch-border sketch-shadow"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 text-white hover:text-[#0EB075] transition-colors flex items-center gap-2 font-mono"
+              >
+                <X size={24} />
+                <span>CLOSE</span>
+              </button>
+              
+              <video
+                src={selectedVideo}
+                controls
+                autoPlay
+                className="w-full h-full"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

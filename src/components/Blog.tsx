@@ -33,7 +33,7 @@ export default function Blog() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-16 text-center lg:text-left">
           <h2
-            style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '56px', color: '#191c1e', lineHeight: '1.1' }}
+            style={{ fontFamily: "'Gochi Hand', cursive", fontSize: '56px', color: '#191c1e', lineHeight: '1.1' }}
           >
             UsedVehiclePro Blog:<br />
             <span style={{ color: '#0eb075' }}>Valuable Content</span> you don&apos;t want to miss
@@ -78,7 +78,7 @@ export default function Blog() {
                       boxShadow: '2px 2px 0px 0px #004B22' 
                     }}
                   >
-                    <span style={{ fontFamily: '"Space Mono", monospace', fontWeight: 700, fontSize: '12px', color: '#0eb075' }}>
+                    <span style={{ fontFamily: "'Space Mono', monospace", fontWeight: 700, fontSize: '12px', color: '#0eb075' }}>
                       {post.category}
                     </span>
                   </div>
@@ -89,7 +89,7 @@ export default function Blog() {
 
                 <h3
                   className="group-hover:text-[#0eb075] transition-colors"
-                  style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '32px', color: '#191c1e', lineHeight: '1.2' }}
+                  style={{ fontFamily: "'Gochi Hand', cursive", fontSize: '32px', color: '#191c1e', lineHeight: '1.2' }}
                 >
                   {post.title}
                 </h3>
@@ -100,7 +100,7 @@ export default function Blog() {
                     alt={post.author}
                     className="w-8 h-8 rounded-full border border-[#004B22]"
                   />
-                  <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '18px', color: '#3d4a41' }}>
+                  <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '18px', color: '#3d4a41' }}>
                     {post.author}
                   </span>
                 </div>
