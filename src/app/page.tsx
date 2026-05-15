@@ -20,7 +20,7 @@ import { CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#F5FDF9]">
+    <div className="min-h-screen bg-[#F9FFF7]">
       {/* Navigation */}
       <Nav />
 

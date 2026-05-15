@@ -7,7 +7,7 @@ export default function Hero() {
   const [vin, setVin] = useState('');
 
   return (
-    <section className="relative pt-16 pb-20 md:pt-24 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
+    <section className="relative pt-16 pb-20 md:pt-24 overflow-hidden" style={{ backgroundColor: '#F9FFF7' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column – copy + search */}

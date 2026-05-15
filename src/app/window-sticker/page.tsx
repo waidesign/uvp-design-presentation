@@ -59,15 +59,16 @@ export default function WindowStickerPage() {
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeZone, setActiveZone] = useState(0);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F5FDF9' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F9FFF7' }}>
       <Nav />
 
       <main>
         {/* ═══════════════ HERO ═══════════════ */}
-        <section className="relative pt-28 pb-24 overflow-hidden" style={{ backgroundColor: '#F5FDF9' }}>
+        <section className="relative pt-28 pb-24 overflow-hidden" style={{ backgroundColor: '#F9FFF7' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left Content Column */}
@@ -2026,8 +2027,20 @@ export default function WindowStickerPage() {
                     style={{ left: `calc(${sliderPos}% - 20px)`, pointerEvents: 'none' }}
                   >
                     <div 
-                      className="w-10 h-10 bg-white border-[3px] border-[#004B22] rounded-full flex items-center justify-center shadow-xl"
+                      className="relative w-10 h-10 bg-white border-[3px] border-[#004B22] rounded-full flex items-center justify-center shadow-xl"
                     >
+                      {/* Tooltip */}
+                      <div 
+                        className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[#004B22] text-white text-[12px] font-bold rounded whitespace-nowrap"
+                        style={{ 
+                          fontFamily: '"Space Mono", monospace',
+                          filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+                        }}
+                      >
+                        ← Drag to compare →
+                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#004B22] rotate-45" />
+                      </div>
+
                       <div className="flex gap-1">
                         <div className="w-1.5 h-4 bg-[#004B22] rounded-full" />
                         <div className="w-1.5 h-4 bg-[#004B22] rounded-full" />
@@ -2037,17 +2050,14 @@ export default function WindowStickerPage() {
 
                   {/* Labels */}
                   <div className="absolute top-6 left-6 px-4 py-2 bg-black/60 text-white text-[12px] font-bold rounded uppercase tracking-widest backdrop-blur-md">
-                    Generic Provider
+                    Monroney Labels
                   </div>
                   <div className="absolute top-6 right-6 px-4 py-2 bg-[#0EB075]/80 text-white text-[12px] font-bold rounded uppercase tracking-widest backdrop-blur-md">
-                    UsedVehiclePro Premium
+                    Used Vehicle Pro Window Sticker
                   </div>
                 </div>
                 
-                <div className="mt-8 text-center flex items-center justify-center gap-12">
-                  <p style={{ fontFamily: '"Gochi Hand", cursive', fontSize: '22px', color: '#4B5563' }}>
-                    ← Drag slider to compare details →
-                  </p>
+                <div className="mt-8 text-center flex items-center justify-center">
                   <a
                     href="#vin-search-section"
                     className="primary-button"
@@ -2059,7 +2069,7 @@ export default function WindowStickerPage() {
                       textDecoration: 'none',
                     }}
                   >
-                    Start Search
+                    Get a Window Sticker
                   </a>
                 </div>
               </div>
@@ -2222,8 +2232,12 @@ export default function WindowStickerPage() {
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="px-6 py-2 bg-white text-[#111827] font-bold text-sm rounded shadow-lg" style={{ fontFamily: '"Space Mono", monospace' }}>
-                      PREVIEW LAYOUT
+                    <button 
+                      onClick={() => setSelectedImage('/assets/branded.png')}
+                      className="px-6 py-2 bg-white text-[#111827] font-bold text-sm rounded shadow-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer" 
+                      style={{ fontFamily: '"Space Mono", monospace' }}
+                    >
+                      Preview Branded Window Sticker
                     </button>
                   </div>
                 </div>
@@ -2270,8 +2284,12 @@ export default function WindowStickerPage() {
                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="px-6 py-2 bg-white text-[#111827] font-bold text-sm rounded shadow-lg" style={{ fontFamily: '"Space Mono", monospace' }}>
-                      VIEW CUSTOM SECTIONS
+                    <button 
+                      onClick={() => setSelectedImage('/assets/customized.png')}
+                      className="px-6 py-2 bg-white text-[#111827] font-bold text-sm rounded shadow-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer" 
+                      style={{ fontFamily: '"Space Mono", monospace' }}
+                    >
+                      Preview Customized Window Sticker
                     </button>
                   </div>
                 </div>
@@ -2507,6 +2525,43 @@ export default function WindowStickerPage() {
                 autoPlay
                 className="w-full h-full"
               />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-4xl max-h-[90vh] bg-white p-2 sketch-border sketch-shadow flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-[#0EB075] transition-colors flex items-center gap-2 font-mono"
+              >
+                <X size={24} />
+                <span>CLOSE</span>
+              </button>
+              
+              <div className="w-full overflow-y-auto">
+                <img
+                  src={selectedImage}
+                  alt="Sticker Preview"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </motion.div>
           </motion.div>
         )}
